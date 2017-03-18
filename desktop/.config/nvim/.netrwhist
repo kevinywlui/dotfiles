@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/klui/.box/Dropbox/src/sage_experiments/multiple_of_order'
+let g:netrw_dirhist_2='/home/klui/sage/src/sage/modular/arithgroup'
+let g:netrw_dirhist_3='/home/klui/.Jagex'
+let g:netrw_dirhist_4='/home/klui/dotfiles/desktop/i3'
+let g:netrw_dirhist_5='/home/klui/.sage'
+let g:netrw_dirhist_6='/home/klui/.sage/db'
+let g:netrw_dirhist_7='/home/klui/.sage'
