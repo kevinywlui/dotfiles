@@ -7,10 +7,10 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'altercation/vim-colors-solarized'
-
+Plug 'jamessan/vim-gnupg'
 
 call plug#end()
-
+let g:GPGPreferSymmetric = 1
 let g:neomake_python_enabled_maker = ["flake8"]
 autocmd! BufWritePost * Neomake
 filetype plugin indent on
