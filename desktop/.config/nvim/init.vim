@@ -1,18 +1,20 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'SirVer/ultisnips'
+Plug 'w0rp/ale'
 Plug 'kevinywlui/vim-snippets'
 Plug 'tpope/vim-commentary'
-Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'jamessan/vim-gnupg'
-
+Plug 'wakatime/vim-wakatime'
 call plug#end()
-let g:GPGPreferSymmetric = 1
-let g:neomake_python_enabled_maker = ["flake8"]
-autocmd! BufWritePost * Neomake
+
+let g:ale_fixers = {
+\   'python': ['flake8'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+
 filetype plugin indent on
 set autoread
 set autowrite

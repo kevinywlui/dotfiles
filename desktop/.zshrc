@@ -1,7 +1,7 @@
 # [[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
 export GPG_TTY=$(tty)
 eval `dircolors ~/.dircolors`
-export PATH=/home/klui/bin:$PATH
+export PATH=/home/klui/bin:/home/klui/.local/bin:$PATH
 
 zstyle ':completion::*:(vi|vim):*' file-patterns '*.tex' '*'
 
