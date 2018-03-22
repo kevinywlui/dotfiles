@@ -43,8 +43,6 @@ alias ssh='TERM=xterm-color ssh'
 alias ss='systemctl suspend'
 alias reboot='systemctl reboot'
 alias myip='curl -s icanhazip.com'
-alias update='sudo pacman -Syu && packer -Syu --devel --auronly --noedit --noconfirm'
-alias cleartmp='rm -rf ~/tmp'
 
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
