@@ -1,18 +1,20 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'SirVer/ultisnips'
+Plug 'w0rp/ale'
 Plug 'kevinywlui/vim-snippets'
 Plug 'tpope/vim-commentary'
-Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'jamessan/vim-gnupg'
-
+Plug 'wakatime/vim-wakatime'
 call plug#end()
-let g:GPGPreferSymmetric = 1
-let g:neomake_python_enabled_maker = ["flake8"]
-autocmd! BufWritePost * Neomake
+
+let g:ale_fixers = {
+\   'python': ['flake8'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+
 filetype plugin indent on
 set autoread
 set autowrite
@@ -56,31 +58,4 @@ colorscheme solarized
 cmap w!! %!sudo tee > /dev/null %
 map <F3> :!pdflatex % <ENTER>
 map <SPACE> :w <ENTER>
-map <F4> :silent !zathura %:r.pdf & <ENTER>
 map <F2> :noh <ENTER>
-
-
-function! MathAndLiquid()
-    "" Define certain regions
-    " Block math. Look for "$$[anything]$$"
-    syn region math start=/\$\$/ end=/\$\$/
-    " inline math. Look for "$[not $][anything]$"
-    syn match math_block '\$[^$].\{-}\$'
-
-    " Liquid single line. Look for "{%[anything]%}"
-    syn match liquid '{%.*%}'
-    " Liquid multiline. Look for "{%[anything]%}[anything]{%[anything]%}"
-    syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
-    " Fenced code blocks, used in GitHub Flavored Markdown (GFM)
-    syn region highlight_block start='```' end='```'
-
-    "" Actually highlight those regions.
-    hi link math Statement
-    hi link liquid Statement
-    hi link highlight_block Function
-    hi link math_block Function
-endfunction
-
-" Call everytime we open a Markdown file
-autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-autocmd BufWritePre * %s/\s\+$//e
