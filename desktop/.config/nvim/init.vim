@@ -11,9 +11,10 @@ Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 let g:ale_fixers = {
-\   'python': ['flake8'],
+\   'python': ['yapf'],
 \}
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
 
 filetype plugin indent on
 set autoread

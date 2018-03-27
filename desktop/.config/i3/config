@@ -135,6 +135,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+p exec "zathura"
 bindsym $mod+e exec "evince"
 bindsym $mod+g exec "google-chrome-stable"
+bindsym $mod+w exec "qutebrowser"
 
 exec --no-startup-id redshift -t 5400:2700
 exec --no-startup-id dunst
