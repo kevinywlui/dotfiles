@@ -5,16 +5,17 @@ Plug 'w0rp/ale'
 Plug 'kevinywlui/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/indentpython.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'wakatime/vim-wakatime'
+Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 let g:ale_fixers = {
 \   'python': ['yapf'],
 \}
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 filetype plugin indent on
 set autoread
@@ -57,6 +58,7 @@ colorscheme solarized
 
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
-map <F3> :!pdflatex % <ENTER>
 map <SPACE> :w <ENTER>
 map <F2> :noh <ENTER>
+map <F3> :!pdflatex % <ENTER>
+map <F4> :TagbarToggle <ENTER>
