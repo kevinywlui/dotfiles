@@ -6,7 +6,7 @@ Plug 'kevinywlui/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
