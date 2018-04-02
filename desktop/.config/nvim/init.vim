@@ -60,6 +60,7 @@ colorscheme solarized
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 map <F2> :noh <ENTER>
-map <F3> :!pdflatex % <ENTER>
+map <F3> :!latexmk -pdf % <ENTER>
 map <F4> :TagbarToggle <ENTER>
 map <F4> :ALEFix <ENTER>
+let g:tex_conceal = ""
