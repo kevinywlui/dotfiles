@@ -2,6 +2,8 @@
 export GPG_TTY=$(tty)
 eval `dircolors ~/.dircolors`
 export PATH=/home/klui/bin:/home/klui/.local/bin:$PATH
+export PATH="$HOME/.node/bin:$PATH"  
+export NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 
 zstyle ':completion::*:(vi|vim):*' file-patterns '*.tex' '*'
 
