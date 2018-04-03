@@ -6,16 +6,19 @@ Plug 'kevinywlui/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
-" Plug 'wakatime/vim-wakatime'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
 let g:ale_fixers = {
-\   'python': ['yapf'],
+\   'python': [
+\       'yapf',
+\       'remove_trailing_lines',
+\       'trim_whitespace' 
+\       ],
 \}
 let g:ale_lint_on_text_changed = 'never'
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 filetype plugin indent on
 set autoread
@@ -63,4 +66,7 @@ map <F2> :noh <ENTER>
 map <F3> :!latexmk -pdf % <ENTER>
 map <F4> :TagbarToggle <ENTER>
 map <F4> :ALEFix <ENTER>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 let g:tex_conceal = ""
