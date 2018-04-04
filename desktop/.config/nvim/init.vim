@@ -10,15 +10,26 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
+let g:ale_linters = {
+\   'tex': [
+\       'chktex',
+\   ],
+\}
+
 let g:ale_fixers = {
 \   'python': [
 \       'yapf',
 \       'remove_trailing_lines',
 \       'trim_whitespace' 
 \       ],
+\   'latex': [
+\       'chktex',
+\    ],
 \}
+" \       'write-good'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
+let g:ale_tex_chktex_options = '-I -n3'
 
 filetype plugin indent on
 set autoread
@@ -65,7 +76,7 @@ map <SPACE> :w <ENTER>
 map <F2> :noh <ENTER>
 map <F3> :!latexmk -pdf % <ENTER>
 map <F4> :TagbarToggle <ENTER>
-map <F4> :ALEFix <ENTER>
+map <F5> :ALEFix <ENTER>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
