@@ -1,15 +1,20 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
-Plug 'SirVer/ultisnips'
-Plug 'w0rp/ale'
-Plug 'kevinywlui/vim-snippets'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
+Plug 'SirVer/ultisnips'
+Plug 'w0rp/ale'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex'
 call plug#end()
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
 
 let g:ale_linters = {
 \   'tex': [
@@ -30,7 +35,7 @@ let g:ale_fixers = {
 " \       'write-good'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
-let g:ale_tex_chktex_options = '-I -n3'
+let g:ale_tex_chktex_options = '-I -n3 -n24'
 
 filetype plugin indent on
 set autoread
