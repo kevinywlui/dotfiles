@@ -18,9 +18,9 @@ let g:vimtex_compiler_progname = 'nvr'
 
 let g:ale_linters = {
 \   'tex': [
-\       'chktex',
 \   ],
 \}
+" \       'chktex',
 
 let g:ale_fixers = {
 \   'python': [
@@ -32,10 +32,9 @@ let g:ale_fixers = {
 \       'chktex',
 \    ],
 \}
-" \       'write-good'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
-let g:ale_tex_chktex_options = '-I -n3 -n24 -n8 -n18 -n13'
+" let g:ale_tex_chktex_options = '-I -n3 -n24 -n8 -n18 -n13'
 
 filetype plugin indent on
 set autoread
