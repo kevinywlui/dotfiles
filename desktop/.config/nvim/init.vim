@@ -2,15 +2,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Yggdroot/indentLine'
-Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'davidhalter/jedi-vim'
-Plug 'lervag/vimtex'
+
+Plug 'lervag/vimtex', { 'for': 'tex' }
 call plug#end()
 
 let g:vimtex_view_method = 'zathura'
