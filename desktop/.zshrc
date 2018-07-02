@@ -45,7 +45,6 @@ zstyle ':completion:*' menu select
 alias ssh='TERM=xterm-color ssh'
 alias ss='systemctl suspend'
 alias reboot='systemctl reboot'
-alias myip='curl -s icanhazip.com'
 
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
@@ -67,3 +66,4 @@ alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

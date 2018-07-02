@@ -9,8 +9,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
+let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 
