@@ -31,7 +31,7 @@ bindsym $mod+q kill
 
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # bindsym $mod+d exec j4-dmenu-desktop
-bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -show combi"
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi"
 
 # change focus
 # vim it
