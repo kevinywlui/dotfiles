@@ -17,3 +17,4 @@ antigen theme candy
 antigen apply
 
 alias vim='nvim'
+eval `dircolors ~/.dircolors`
