@@ -18,3 +18,4 @@ antigen apply
 
 alias vim='nvim'
 eval `dircolors ~/.dircolors`
+export PATH="$PATH:/home/klui/.local/bin/"

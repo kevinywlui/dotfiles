@@ -8,14 +8,16 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 call plug#end()
-
+let g:tex_flavor = "latex"
 let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
-
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:ale_linters = {
 \   'tex': [
 \   ],
