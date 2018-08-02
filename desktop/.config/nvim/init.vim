@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
@@ -75,7 +75,7 @@ set autoindent
 set fileformat=unix
 
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
