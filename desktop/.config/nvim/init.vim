@@ -7,6 +7,7 @@ Plug 'w0rp/ale'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'wakatime/vim-wakatime'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -23,6 +24,25 @@ let g:ale_linters = {
 \   ],
 \}
 " \       'chktex',
+
+let g:vimtex_quickfix_latexlog = {
+            \ 'default' : 1,
+            \ 'general' : 1,
+            \ 'references' : 1,
+            \ 'overfull' : 1,
+            \ 'underfull' : 1,
+            \ 'font' : 1,
+            \ 'packages' : {
+            \   'default' : 1,
+            \   'natbib' : 1,
+            \   'biblatex' : 1,
+            \   'babel' : 1,
+            \   'hyperref' : 0,
+            \   'scrreprt' : 1,
+            \   'fixltx2e' : 1,
+            \   'titlesec' : 1,
+            \ },
+            \}
 
 let g:ale_fixers = {
 \   'python': [

@@ -17,5 +17,6 @@ antigen theme candy
 antigen apply
 
 alias vim='nvim'
+# alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
-export PATH="$PATH:/home/klui/.local/bin/"
+export PATH="$PATH:/home/klui/.local/bin/:/home/klui/.gem/ruby/2.5.0/bin"
