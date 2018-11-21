@@ -1,0 +1,192 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+<C-j>	desktop/.config/nvim/init.vim	/^nmap <silent> <C-j> <Plug>(ale_next_wrap)$/;"	m
+<C-k>	desktop/.config/nvim/init.vim	/^nmap <silent> <C-k> <Plug>(ale_previous_wrap)$/;"	m
+<F2>	desktop/.config/nvim/init.vim	/^map <F2> :noh <ENTER>$/;"	m
+<F3>	desktop/.config/nvim/init.vim	/^map <F3> :!latexmk -pdf % <ENTER>$/;"	m
+<F4>	desktop/.config/nvim/init.vim	/^map <F4> :TagbarToggle <ENTER>$/;"	m
+<F5>	desktop/.config/nvim/init.vim	/^map <F5> :ALEFix <ENTER>$/;"	m
+<SPACE>	desktop/.config/nvim/init.vim	/^map <SPACE> :w <ENTER>$/;"	m
+<cr>	desktop/.config/nvim/autoload/plug.vim	/^      nmap <buffer> <cr> <plug>(plug-preview)$/;"	m
+<plug>(plug-preview)	desktop/.config/nvim/autoload/plug.vim	/^    nnoremap <silent> <buffer> <plug>(plug-preview) :silent! call <SID>preview_commit()<cr>$/;"	m
+D	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> D  :PlugDiff<cr>$/;"	m
+L	desktop/.config/nvim/autoload/plug.vim	/^    nnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
+L	desktop/.config/nvim/autoload/plug.vim	/^    xnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
+Plug	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=+ -bar Plug call plug#(<args>)$/;"	c
+PlugClean	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=0 -bar -bang PlugClean call s:clean(<bang>0)$/;"	c
+PlugDiff	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugDiff    call s:diff()$/;"	c
+PlugInstall	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=* -bar -bang -complete=customlist,s:names PlugInstall call s:install(<bang>0, /;"	c
+PlugLOD	desktop/.config/nvim/autoload/plug.vim	/^    augroup PlugLOD$/;"	a
+PlugSnapshot	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=? -bar -bang -complete=file PlugSnapshot call s:snapshot(<bang>0, <f-args>)$/;"	c
+PlugStatus	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugStatus  call s:status()$/;"	c
+PlugUpdate	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update(<bang>0, [/;"	c
+PlugUpgrade	desktop/.config/nvim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugUpgrade if s:upgrade() | execute 'source' s:esc(s:me) | endif$/;"	c
+R	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> R  :call <SID>retry()<cr>$/;"	m
+S	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> S  :PlugStatus<cr>$/;"	m
+U	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
+U	desktop/.config/nvim/autoload/plug.vim	/^  xnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
+X	desktop/.config/nvim/autoload/plug.vim	/^    nnoremap <silent> <buffer> X :call <SID>revert()<cr>$/;"	m
+[[	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> [[ :silent! call <SID>section('b')<cr>$/;"	m
+]]	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> ]] :silent! call <SID>section('')<cr>$/;"	m
+d	desktop/.config/nvim/autoload/plug.vim	/^      nnoremap <silent> <buffer> d :set opfunc=<sid>delete_op<cr>g@$/;"	m
+d	desktop/.config/nvim/autoload/plug.vim	/^      xnoremap <silent> <buffer> d :<c-u>call <sid>delete_op(visualmode(), 1)<cr>$/;"	m
+dd	desktop/.config/nvim/autoload/plug.vim	/^      nmap     <silent> <buffer> dd d_$/;"	m
+filetypedetect	desktop/.config/nvim/autoload/plug.vim	/^        augroup filetypedetect$/;"	a
+filetypedetect	desktop/.config/nvim/filetype.vim	/^augroup filetypedetect$/;"	a
+g:_plug_bang	desktop/.config/nvim/autoload/plug.vim	/^    let g:_plug_bang = (s:is_win && has('gui_running') ? 'silent ' : '').'!'.escape(cmd, '#!%')$/;"	v
+g:airline#extensions#tagbar#flags	desktop/.config/nvim/init.vim	/^let g:airline#extensions#tagbar#flags = 'f'$/;"	v
+g:ale_fix_on_save	desktop/.config/nvim/init.vim	/^let g:ale_fix_on_save = 1$/;"	v
+g:ale_fixers	desktop/.config/nvim/init.vim	/^let g:ale_fixers = {$/;"	v
+g:ale_lint_on_text_changed	desktop/.config/nvim/init.vim	/^let g:ale_lint_on_text_changed = 'never'$/;"	v
+g:ale_linters	desktop/.config/nvim/init.vim	/^let g:ale_linters = {$/;"	v
+g:loaded_plug	desktop/.config/nvim/autoload/plug.vim	/^let g:loaded_plug = 1$/;"	v
+g:plug_home	desktop/.config/nvim/autoload/plug.vim	/^  let g:plug_home = home$/;"	v
+g:plugs	desktop/.config/nvim/autoload/plug.vim	/^    let g:plugs[name] = spec$/;"	v
+g:plugs	desktop/.config/nvim/autoload/plug.vim	/^  let g:plugs = {}$/;"	v
+g:plugs_order	desktop/.config/nvim/autoload/plug.vim	/^  let g:plugs_order = []$/;"	v
+g:plugs_order	desktop/.config/nvim/autoload/plug.vim	/^  let g:plugs_order = get(g:, 'plugs_order', keys(g:plugs))$/;"	v
+g:tex_conceal	desktop/.config/nvim/init.vim	/^let g:tex_conceal = ""$/;"	v
+g:tex_flavor	desktop/.config/nvim/init.vim	/^let g:tex_flavor = "latex"$/;"	v
+g:vim_markdown_folding_disabled	desktop/.config/nvim/init.vim	/^let g:vim_markdown_folding_disabled = 1$/;"	v
+g:vimtex_compiler_progname	desktop/.config/nvim/init.vim	/^let g:vimtex_compiler_progname = 'nvr'$/;"	v
+g:vimtex_quickfix_latexlog	desktop/.config/nvim/init.vim	/^let g:vimtex_quickfix_latexlog = {$/;"	v
+g:vimtex_view_method	desktop/.config/nvim/init.vim	/^let g:vimtex_view_method = 'zathura'$/;"	v
+g:vimwiki_hl_headers	desktop/.config/nvim/init.vim	/^let g:vimwiki_hl_headers = 1$/;"	v
+g:vimwiki_list	desktop/.config/nvim/init.vim	/^let g:vimwiki_list = [{'path': '~\/vimwiki\/',$/;"	v
+g:vimwiki_url_maxsave	desktop/.config/nvim/init.vim	/^let g:vimwiki_url_maxsave=0$/;"	v
+o	desktop/.config/nvim/autoload/plug.vim	/^      nmap <buffer> o <plug>(plug-preview)$/;"	m
+plug#	desktop/.config/nvim/autoload/plug.vim	/^function! plug#(repo, ...)$/;"	f
+plug#begin	desktop/.config/nvim/autoload/plug.vim	/^function! plug#begin(...)$/;"	f
+plug#end	desktop/.config/nvim/autoload/plug.vim	/^function! plug#end()$/;"	f
+plug#helptags	desktop/.config/nvim/autoload/plug.vim	/^function! plug#helptags()$/;"	f
+plug#load	desktop/.config/nvim/autoload/plug.vim	/^function! plug#load(...)$/;"	f
+q	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q  :if b:plug_preview==1<bar>pc<bar>endif<bar>bd<cr>$/;"	m
+q	desktop/.config/nvim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q :q<cr>$/;"	m
+s:TYPE	desktop/.config/nvim/autoload/plug.vim	/^let s:TYPE = {$/;"	v
+s:append_ul	desktop/.config/nvim/autoload/plug.vim	/^function! s:append_ul(lnum, text)$/;"	f
+s:ask	desktop/.config/nvim/autoload/plug.vim	/^function! s:ask(message, ...)$/;"	f
+s:ask_no_interrupt	desktop/.config/nvim/autoload/plug.vim	/^function! s:ask_no_interrupt(...)$/;"	f
+s:assign_name	desktop/.config/nvim/autoload/plug.vim	/^function! s:assign_name()$/;"	f
+s:assoc	desktop/.config/nvim/autoload/plug.vim	/^function! s:assoc(dict, key, val)$/;"	f
+s:bang	desktop/.config/nvim/autoload/plug.vim	/^function! s:bang(cmd, ...)$/;"	f
+s:bar	desktop/.config/nvim/autoload/plug.vim	/^function! s:bar()$/;"	f
+s:base_spec	desktop/.config/nvim/autoload/plug.vim	/^let s:base_spec = { 'branch': 'master', 'frozen': 0 }$/;"	v
+s:check_ruby	desktop/.config/nvim/autoload/plug.vim	/^function! s:check_ruby()$/;"	f
+s:checkout	desktop/.config/nvim/autoload/plug.vim	/^function! s:checkout(spec)$/;"	f
+s:chsh	desktop/.config/nvim/autoload/plug.vim	/^function! s:chsh(swap)$/;"	f
+s:clean	desktop/.config/nvim/autoload/plug.vim	/^function! s:clean(force)$/;"	f
+s:compare_git_uri	desktop/.config/nvim/autoload/plug.vim	/^function! s:compare_git_uri(a, b)$/;"	f
+s:cpo_save	desktop/.config/nvim/autoload/plug.vim	/^let s:cpo_save = &cpo$/;"	v
+s:define_commands	desktop/.config/nvim/autoload/plug.vim	/^function! s:define_commands()$/;"	f
+s:delete	desktop/.config/nvim/autoload/plug.vim	/^function! s:delete(range, force)$/;"	f
+s:delete_op	desktop/.config/nvim/autoload/plug.vim	/^function! s:delete_op(type, ...)$/;"	f
+s:diff	desktop/.config/nvim/autoload/plug.vim	/^function! s:diff()$/;"	f
+s:dirpath	desktop/.config/nvim/autoload/plug.vim	/^  function! s:dirpath(path)$/;"	f
+s:do	desktop/.config/nvim/autoload/plug.vim	/^function! s:do(pull, force, todo)$/;"	f
+s:doautocmd	desktop/.config/nvim/autoload/plug.vim	/^function! s:doautocmd(...)$/;"	f
+s:dobufread	desktop/.config/nvim/autoload/plug.vim	/^function! s:dobufread(names)$/;"	f
+s:err	desktop/.config/nvim/autoload/plug.vim	/^function! s:err(msg)$/;"	f
+s:esc	desktop/.config/nvim/autoload/plug.vim	/^function! s:esc(path)$/;"	f
+s:escrtp	desktop/.config/nvim/autoload/plug.vim	/^function! s:escrtp(path)$/;"	f
+s:extract_name	desktop/.config/nvim/autoload/plug.vim	/^function! s:extract_name(str, prefix, suffix)$/;"	f
+s:find_name	desktop/.config/nvim/autoload/plug.vim	/^function! s:find_name(lnum)$/;"	f
+s:finish	desktop/.config/nvim/autoload/plug.vim	/^function! s:finish(pull)$/;"	f
+s:finish_bindings	desktop/.config/nvim/autoload/plug.vim	/^function! s:finish_bindings()$/;"	f
+s:first_rtp	desktop/.config/nvim/autoload/plug.vim	/^let s:first_rtp = s:escrtp(get(s:split_rtp(), 0, ''))$/;"	v
+s:format_git_log	desktop/.config/nvim/autoload/plug.vim	/^function! s:format_git_log(line)$/;"	f
+s:format_message	desktop/.config/nvim/autoload/plug.vim	/^function! s:format_message(bullet, name, message)$/;"	f
+s:git_validate	desktop/.config/nvim/autoload/plug.vim	/^function! s:git_validate(spec, check_branch)$/;"	f
+s:git_version_requirement	desktop/.config/nvim/autoload/plug.vim	/^function! s:git_version_requirement(...)$/;"	f
+s:glob	desktop/.config/nvim/autoload/plug.vim	/^function! s:glob(from, pattern)$/;"	f
+s:glob_dir	desktop/.config/nvim/autoload/plug.vim	/^function! s:glob_dir(path)$/;"	f
+s:hash_match	desktop/.config/nvim/autoload/plug.vim	/^function! s:hash_match(a, b)$/;"	f
+s:infer_properties	desktop/.config/nvim/autoload/plug.vim	/^function! s:infer_properties(name, repo)$/;"	f
+s:install	desktop/.config/nvim/autoload/plug.vim	/^function! s:install(force, names)$/;"	f
+s:is_local_plug	desktop/.config/nvim/autoload/plug.vim	/^  function! s:is_local_plug(repo)$/;"	f
+s:is_managed	desktop/.config/nvim/autoload/plug.vim	/^function! s:is_managed(name)$/;"	f
+s:is_preview_window_open	desktop/.config/nvim/autoload/plug.vim	/^function! s:is_preview_window_open()$/;"	f
+s:is_updated	desktop/.config/nvim/autoload/plug.vim	/^function! s:is_updated(dir)$/;"	f
+s:is_win	desktop/.config/nvim/autoload/plug.vim	/^let s:is_win = has('win32')$/;"	v
+s:job_abort	desktop/.config/nvim/autoload/plug.vim	/^function! s:job_abort()$/;"	f
+s:job_cb	desktop/.config/nvim/autoload/plug.vim	/^function! s:job_cb(fn, job, ch, data)$/;"	f
+s:job_exit_cb	desktop/.config/nvim/autoload/plug.vim	/^function! s:job_exit_cb(self, data) abort$/;"	f
+s:job_out_cb	desktop/.config/nvim/autoload/plug.vim	/^function! s:job_out_cb(self, data) abort$/;"	f
+s:last_non_empty_line	desktop/.config/nvim/autoload/plug.vim	/^function! s:last_non_empty_line(lines)$/;"	f
+s:last_rtp	desktop/.config/nvim/autoload/plug.vim	/^let s:last_rtp  = s:escrtp(get(s:split_rtp(), -1, ''))$/;"	v
+s:lastline	desktop/.config/nvim/autoload/plug.vim	/^function! s:lastline(msg)$/;"	f
+s:lines	desktop/.config/nvim/autoload/plug.vim	/^function! s:lines(msg)$/;"	f
+s:load_plugin	desktop/.config/nvim/autoload/plug.vim	/^function! s:load_plugin(spec)$/;"	f
+s:loaded	desktop/.config/nvim/autoload/plug.vim	/^let s:loaded = get(s:, 'loaded', {})$/;"	v
+s:loaded_names	desktop/.config/nvim/autoload/plug.vim	/^function! s:loaded_names()$/;"	f
+s:lod	desktop/.config/nvim/autoload/plug.vim	/^function! s:lod(names, types, ...)$/;"	f
+s:lod_cmd	desktop/.config/nvim/autoload/plug.vim	/^function! s:lod_cmd(cmd, bang, l1, l2, args, names)$/;"	f
+s:lod_ft	desktop/.config/nvim/autoload/plug.vim	/^function! s:lod_ft(pat, names)$/;"	f
+s:lod_map	desktop/.config/nvim/autoload/plug.vim	/^function! s:lod_map(map, names, with_prefix, prefix)$/;"	f
+s:log	desktop/.config/nvim/autoload/plug.vim	/^function! s:log(bullet, name, lines)$/;"	f
+s:log4	desktop/.config/nvim/autoload/plug.vim	/^function! s:log4(name, msg)$/;"	f
+s:logpos	desktop/.config/nvim/autoload/plug.vim	/^function! s:logpos(name)$/;"	f
+s:lpad	desktop/.config/nvim/autoload/plug.vim	/^function! s:lpad(str, len)$/;"	f
+s:mac_gui	desktop/.config/nvim/autoload/plug.vim	/^let s:mac_gui = has('gui_macvim') && has('gui_running')$/;"	v
+s:me	desktop/.config/nvim/autoload/plug.vim	/^let s:me = resolve(expand('<sfile>:p'))$/;"	v
+s:names	desktop/.config/nvim/autoload/plug.vim	/^function! s:names(...)$/;"	f
+s:new_window	desktop/.config/nvim/autoload/plug.vim	/^function! s:new_window()$/;"	f
+s:nvim	desktop/.config/nvim/autoload/plug.vim	/^let s:nvim = has('nvim-0.2') || (has('nvim') && exists('*jobwait') && !s:is_win)$/;"	v
+s:nvim_cb	desktop/.config/nvim/autoload/plug.vim	/^function! s:nvim_cb(job_id, data, event) dict abort$/;"	f
+s:parse_options	desktop/.config/nvim/autoload/plug.vim	/^function! s:parse_options(arg)$/;"	f
+s:path	desktop/.config/nvim/autoload/plug.vim	/^  function! s:path(path)$/;"	f
+s:plug_buf	desktop/.config/nvim/autoload/plug.vim	/^let s:plug_buf = get(s:, 'plug_buf', -1)$/;"	v
+s:plug_src	desktop/.config/nvim/autoload/plug.vim	/^let s:plug_src = 'https:\/\/github.com\/junegunn\/vim-plug.git'$/;"	v
+s:plug_tab	desktop/.config/nvim/autoload/plug.vim	/^let s:plug_tab = get(s:, 'plug_tab', -1)$/;"	v
+s:plug_window_exists	desktop/.config/nvim/autoload/plug.vim	/^function! s:plug_window_exists()$/;"	f
+s:prepare	desktop/.config/nvim/autoload/plug.vim	/^function! s:prepare(...)$/;"	f
+s:preview_commit	desktop/.config/nvim/autoload/plug.vim	/^function! s:preview_commit()$/;"	f
+s:progress_bar	desktop/.config/nvim/autoload/plug.vim	/^function! s:progress_bar(line, bar, total)$/;"	f
+s:progress_opt	desktop/.config/nvim/autoload/plug.vim	/^function! s:progress_opt(base)$/;"	f
+s:reap	desktop/.config/nvim/autoload/plug.vim	/^function! s:reap(name)$/;"	f
+s:regress_bar	desktop/.config/nvim/autoload/plug.vim	/^function! s:regress_bar()$/;"	f
+s:reload_plugins	desktop/.config/nvim/autoload/plug.vim	/^function! s:reload_plugins()$/;"	f
+s:remove_rtp	desktop/.config/nvim/autoload/plug.vim	/^function! s:remove_rtp()$/;"	f
+s:remove_triggers	desktop/.config/nvim/autoload/plug.vim	/^function! s:remove_triggers(name)$/;"	f
+s:reorg_rtp	desktop/.config/nvim/autoload/plug.vim	/^function! s:reorg_rtp()$/;"	f
+s:retry	desktop/.config/nvim/autoload/plug.vim	/^function! s:retry()$/;"	f
+s:revert	desktop/.config/nvim/autoload/plug.vim	/^function! s:revert()$/;"	f
+s:rm_rf	desktop/.config/nvim/autoload/plug.vim	/^function! s:rm_rf(dir)$/;"	f
+s:rtp	desktop/.config/nvim/autoload/plug.vim	/^  function! s:rtp(spec)$/;"	f
+s:section	desktop/.config/nvim/autoload/plug.vim	/^function! s:section(flags)$/;"	f
+s:shellesc	desktop/.config/nvim/autoload/plug.vim	/^function! s:shellesc(arg)$/;"	f
+s:shellesc_cmd	desktop/.config/nvim/autoload/plug.vim	/^function! s:shellesc_cmd(arg)$/;"	f
+s:snapshot	desktop/.config/nvim/autoload/plug.vim	/^function! s:snapshot(force, ...) abort$/;"	f
+s:source	desktop/.config/nvim/autoload/plug.vim	/^function! s:source(from, ...)$/;"	f
+s:spawn	desktop/.config/nvim/autoload/plug.vim	/^function! s:spawn(name, cmd, opts)$/;"	f
+s:split_rtp	desktop/.config/nvim/autoload/plug.vim	/^function! s:split_rtp()$/;"	f
+s:status	desktop/.config/nvim/autoload/plug.vim	/^function! s:status()$/;"	f
+s:status_load	desktop/.config/nvim/autoload/plug.vim	/^function! s:status_load(lnum)$/;"	f
+s:status_update	desktop/.config/nvim/autoload/plug.vim	/^function! s:status_update() range$/;"	f
+s:switch_in	desktop/.config/nvim/autoload/plug.vim	/^function! s:switch_in()$/;"	f
+s:switch_out	desktop/.config/nvim/autoload/plug.vim	/^function! s:switch_out(...)$/;"	f
+s:syntax	desktop/.config/nvim/autoload/plug.vim	/^function! s:syntax()$/;"	f
+s:system	desktop/.config/nvim/autoload/plug.vim	/^function! s:system(cmd, ...)$/;"	f
+s:system_chomp	desktop/.config/nvim/autoload/plug.vim	/^function! s:system_chomp(...)$/;"	f
+s:tick	desktop/.config/nvim/autoload/plug.vim	/^function! s:tick()$/;"	f
+s:to_a	desktop/.config/nvim/autoload/plug.vim	/^function! s:to_a(v)$/;"	f
+s:to_s	desktop/.config/nvim/autoload/plug.vim	/^function! s:to_s(v)$/;"	f
+s:triggers	desktop/.config/nvim/autoload/plug.vim	/^let s:triggers = get(s:, 'triggers', {})$/;"	v
+s:trim	desktop/.config/nvim/autoload/plug.vim	/^function! s:trim(str)$/;"	f
+s:update	desktop/.config/nvim/autoload/plug.vim	/^function! s:update(force, names)$/;"	f
+s:update_finish	desktop/.config/nvim/autoload/plug.vim	/^function! s:update_finish()$/;"	f
+s:update_impl	desktop/.config/nvim/autoload/plug.vim	/^function! s:update_impl(pull, force, args) abort$/;"	f
+s:update_python	desktop/.config/nvim/autoload/plug.vim	/^function! s:update_python()$/;"	f
+s:update_ruby	desktop/.config/nvim/autoload/plug.vim	/^function! s:update_ruby()$/;"	f
+s:update_vim	desktop/.config/nvim/autoload/plug.vim	/^function! s:update_vim()$/;"	f
+s:upgrade	desktop/.config/nvim/autoload/plug.vim	/^function! s:upgrade()$/;"	f
+s:upgrade_specs	desktop/.config/nvim/autoload/plug.vim	/^function! s:upgrade_specs()$/;"	f
+s:version_requirement	desktop/.config/nvim/autoload/plug.vim	/^function! s:version_requirement(val, min)$/;"	f
+s:vim8	desktop/.config/nvim/autoload/plug.vim	/^let s:vim8 = has('patch-8.0.0039') && exists('*job_start')$/;"	v
+s:warn	desktop/.config/nvim/autoload/plug.vim	/^function! s:warn(cmd, msg)$/;"	f
+s:with_cd	desktop/.config/nvim/autoload/plug.vim	/^function! s:with_cd(cmd, dir)$/;"	f
+w!!	desktop/.config/nvim/init.vim	/^cmap w!! %!sudo tee > \/dev\/null %$/;"	m

@@ -7,23 +7,33 @@ Plug 'w0rp/ale'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
 Plug 'wakatime/vim-wakatime'
-
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 call plug#end()
+
+" let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_url_maxsave=0
+
+" vimtex
 let g:tex_flavor = "latex"
 let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-            \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:ale_linters = {
 \   'tex': [
 \   ],
 \}
 " \       'chktex',
+"
 
 let g:vimtex_quickfix_latexlog = {
             \ 'default' : 1,
