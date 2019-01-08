@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/klui/.git_template'
 let g:netrw_dirhist_2='/home/klui/.git_template/hooks'
 let g:netrw_dirhist_3='/home/klui/modabvar'
+let g:netrw_dirhist_4='/home/klui/.config/termite'
