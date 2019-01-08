@@ -26,6 +26,7 @@ let g:tex_flavor = "latex"
 let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
+let g:tex_conceal = ""
 "
 
 let g:vimtex_quickfix_latexlog = {
@@ -47,8 +48,8 @@ let g:vimtex_quickfix_latexlog = {
             \ },
             \}
 
-set conceallevel = 0
 filetype plugin indent on
+set conceallevel=0
 set autoread
 set autowrite
 set nobackup
