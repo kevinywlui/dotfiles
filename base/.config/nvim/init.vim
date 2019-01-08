@@ -47,6 +47,7 @@ let g:vimtex_quickfix_latexlog = {
             \ },
             \}
 
+set conceallevel = 0
 filetype plugin indent on
 set autoread
 set autowrite
