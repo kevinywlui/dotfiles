@@ -5,7 +5,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle fasd
+antigen bundle clvv/fasd fasd
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -16,7 +16,7 @@ antigen theme candy
 # Tell Antigen that you're done.
 antigen apply
 
+eval "$(fasd --init auto)"
 alias vim='nvim'
 # alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
-export PATH="$PATH:/home/klui/.local/bin/:/home/klui/.gem/ruby/2.5.0/bin"
