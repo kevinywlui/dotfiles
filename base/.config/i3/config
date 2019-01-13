@@ -147,7 +147,7 @@ default_border pixel 4
 bar {
         position top
         status_command i3blocks
-        font pango:Fira Code 11, FontAwesome 9
+        font pango:Fira Code 13, FontAwesome 11
         colors {
         background #2a2a2a
         statusline #c0c0c0

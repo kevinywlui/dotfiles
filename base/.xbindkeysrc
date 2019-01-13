@@ -36,19 +36,34 @@
 
 
 #Volume Mute
-"ponymix toggle; pkill -RTMIN+1 i3blocks"
+"ponymix toggle --output; pkill -SIGRTMIN+10 i3blocks"
     m:0x10 + c:121
     Mod2 + XF86AudioMute 
 
+#Volume Down
+"ponymix decrease 5 --output; pkill -SIGRTMIN+10 i3blocks"
+    m:0x10 + c:122
+    Mod2 + XF86AudioLowerVolume 
+
 #Volume Up
-"ponymix increase 5; pkill -RTMIN+1 i3blocks"
+"ponymix increase 5 --output; pkill -SIGRTMIN+10 i3blocks"
     m:0x10 + c:123
     Mod2 + XF86AudioRaiseVolume 
 
-#Volume Down
-"ponymix decrease 5; pkill -RTMIN+1 i3blocks"
-    m:0x10 + c:122
-    Mod2 + XF86AudioLowerVolume 
+#Toggle Mic
+"ponymix toggle --input; pkill -SIGRTMIN+10 i3blocks"
+    m:0x0 + c:198
+    XF86AudioMicMute 
+
+#Brightness Down
+"light -U 7"
+    m:0x0 + c:232
+    XF86MonBrightnessDown 
+
+#Brightness Up
+"light -A 7"
+    m:0x0 + c:233
+    XF86MonBrightnessUp 
 
 #
 # End of xbindkeys configuration

@@ -25,7 +25,6 @@ let g:vimwiki_url_maxsave = 0
 let g:tex_flavor = "latex"
 let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_progname = 'nvr'
 let g:tex_conceal = ""
 "
 
