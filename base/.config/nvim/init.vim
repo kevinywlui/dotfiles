@@ -93,3 +93,4 @@ cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 map <F2> :noh <ENTER>
 map <F4> :TagbarToggle <ENTER>
+nnoremap jk :noh<return>
