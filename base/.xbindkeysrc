@@ -65,5 +65,10 @@
     m:0x0 + c:233
     XF86MonBrightnessUp 
 
+#Toggle Wifi
+"~/bin/toggle_wifi"
+    m:0x0 + c:246
+    XF86WLAN 
+
 #
 # End of xbindkeys configuration

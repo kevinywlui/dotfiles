@@ -17,11 +17,15 @@ antigen theme candy
 antigen apply
 
 
-
 eval "$(fasd --init auto)"
+alias o='xdg-open'
 alias vim='nvim'
-alias gc='gcalcli'
 alias gg='gcalcli agenda'
+alias gq='gcalcli --calendar="Main Calendar" quick; gg'
 alias v='f -e nvim'   # quick opening files with vim
+alias f='o "$(fzf --preview "~/bin/preview_cmd {}")"'
+# alias f='o "$(fzf)"'
 # alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
+export EDITOR='nvim'
+export VISUAL='nvim'
