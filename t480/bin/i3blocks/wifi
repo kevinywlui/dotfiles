@@ -22,9 +22,10 @@ INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 
 # As per #36 -- It is transparent: e.g. if the machine has no battery or wireless
 # connection (think desktop), the corresponding block should not be displayed.
+STATUS=`iwctl adapter phy0 show |  grep Powered | awk '{print $4}'`
 if [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]]; then
-    echo 'down'
-    echo 'down'
+    echo '$STATUS:down'
+    echo '$STATUS:down'
     echo "#FF0000"
     exit
 fi
@@ -35,8 +36,8 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 
 #------------------------------------------------------------------------
 
-echo $QUALITY% # full text
-echo $QUALITY% # short text
+echo $STATUS: $QUALITY% # full text
+echo $STATUS: $QUALITY% # short text
 
 # color
 if [[ $QUALITY -ge 80 ]]; then
