@@ -65,10 +65,15 @@
     m:0x0 + c:233
     XF86MonBrightnessUp 
 
-#Toggle Wifi
-"~/bin/toggle_wifi"
+#Wifi On
+"iwctl adapter phy0 set-property Powered on"
     m:0x0 + c:246
     XF86WLAN 
+
+#Wifi Off
+"iwctl adapter phy0 set-property Powered off"
+    m:0x1 + c:246
+    Shift + XF86WLAN 
 
 #
 # End of xbindkeys configuration
