@@ -11,6 +11,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+Plug 'w0rp/ale'
 call plug#end()
 
 let g:airline#extensions#tagbar#flags = 'f'

@@ -27,7 +27,8 @@ alias f='o "$(fzf --preview "~/bin/preview_cmd {}")"'
 alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
 alias t='vim "$(ag -U -g "tex$" | fzf)"'
 # alias f='o "$(fzf)"'
-# alias sage='~/sage/sage'
+alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
 export EDITOR='nvim'
 export VISUAL='nvim'
+export PATH=$PATH:~/.local/bin
