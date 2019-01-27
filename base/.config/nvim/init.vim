@@ -14,6 +14,9 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
 call plug#end()
 
+let g:ale_linters = {
+\   'python': ['pycodestyle'],
+\}
 let g:airline#extensions#tagbar#flags = 'f'
 
 " vimwiki
@@ -27,6 +30,7 @@ let g:tex_flavor = "latex"
 let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:tex_conceal = ""
+let g:vimtex_quickfix_mode = 0
 "
 
 let g:vimtex_quickfix_latexlog = {
