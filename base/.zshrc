@@ -20,7 +20,7 @@ antigen apply
 eval "$(fasd --init auto)"
 alias o='xdg-open'
 alias vim='nvim'
-alias gg='gcalcli agenda'
+alias gg='gcalcli --refresh agenda'
 alias gq='gcalcli --calendar="Main Calendar" quick; gg'
 alias v='f -e nvim'   # quick opening files with vim
 alias f='o "$(fzf --preview "~/bin/preview_cmd {}")"'

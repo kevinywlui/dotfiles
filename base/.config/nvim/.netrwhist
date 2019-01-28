@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/klui/.git_template'
-let g:netrw_dirhist_2='/home/klui/.git_template/hooks'
-let g:netrw_dirhist_3='/home/klui/modabvar'
-let g:netrw_dirhist_4='/home/klui/.config/termite'
-let g:netrw_dirhist_5='/home/klui/.xbindkeys_config'
-let g:netrw_dirhist_6='/home/klui/.config/i3'
-let g:netrw_dirhist_7='/home/klui/bin/i3blocks'
-let g:netrw_dirhist_8='/home/klui/.xbindkeys_config'
-let g:netrw_dirhist_9='/home/klui/.xbindkeys_config/speed_c'
+let g:netrw_dirhist_cnt =0
