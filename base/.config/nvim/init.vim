@@ -14,10 +14,14 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
 call plug#end()
 
+" airline/tagbar
+let g:airline#extensions#tagbar#flags = 'f'
+
+" ale
 let g:ale_linters = {
 \   'python': ['pycodestyle'],
 \}
-let g:airline#extensions#tagbar#flags = 'f'
+let g:ale_tex_chktex_options = "-n 3"
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
