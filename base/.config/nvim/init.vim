@@ -19,9 +19,14 @@ let g:airline#extensions#tagbar#flags = 'f'
 
 " ale
 let g:ale_linters = {
-\   'python': ['pycodestyle'],
-\}
-let g:ale_tex_chktex_options = "-n 3"
+            \   'python': ['pycodestyle'],
+            \   'sh': ['shfmt'],
+            \}
+let g:ale_fixers = {
+            \   'python': ['yapf'],
+            \}
+
+let g:ale_tex_chktex_options = "-n 3 13"
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
@@ -88,7 +93,8 @@ silent !mkdir -p ~/.vimtmp/undo
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+autocmd bufreadpre *.py setlocal textwidth=0
+" set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix

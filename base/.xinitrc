@@ -1,5 +1,5 @@
 xmodmap ~/.Xmodmap
-xss-lock -- slock  &
+xss-lock -- slock &
 udiskie &
 xbindkeys
 ponymix mute --input
@@ -8,9 +8,8 @@ ponymix mute --output
 
 if [ -x /usr/bin/gcalcli ]; then
   while true; do
-    notify-send "test"
-    gcalcli remind 15 "notify-send -u critical -i appointment-soon -a gcalcli \%s"
-    sleep 15m
+    gcalcli remind 30 "notify-send -u critical -i appointment-soon -a gcalcli \%s"
+    sleep 10m
   done &
 fi
 exec i3
