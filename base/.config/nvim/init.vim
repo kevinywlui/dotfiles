@@ -29,10 +29,10 @@ let g:ale_fixers = {
 let g:ale_tex_chktex_options = "-n 3 13"
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-            \ 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'path': '~/vimwiki/',
+"             \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_headers = 1
-let g:vimwiki_url_maxsave = 0
+" let g:vimwiki_url_maxsave = 0
 
 " vimtex
 let g:tex_flavor = "latex"

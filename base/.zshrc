@@ -21,10 +21,8 @@ eval "$(fasd --init auto)"
 alias o='xdg-open'
 alias vim='nvim'
 alias gg='gcalcli --refresh agenda'
-alias v='f -e nvim'   # quick opening files with vim
 alias f='o "$(fzf --preview "~/bin/preview_cmd {}")"'
-alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
-# alias f='o "$(fzf)"'
+alias vw='vim ~/vimwiki/index.wiki'
 
 alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
