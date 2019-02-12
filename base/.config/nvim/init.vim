@@ -93,8 +93,8 @@ silent !mkdir -p ~/.vimtmp/undo
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd bufreadpre *.py setlocal textwidth=0
-" set textwidth=79
+" autocmd bufreadpre *.py  setlocal textwidth=0
+set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
