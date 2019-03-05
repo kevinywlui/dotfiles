@@ -31,7 +31,7 @@ alias gg='gcalcli --refresh agenda'
 alias f='o "$(fzf --preview "~/bin/preview_cmd {}")"'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
-alias v='nvim "$(rp -l --color never --max-filesize 500K * | fzf)"'
+alias v='nvim "$(ag -U -g "(tex|py|bib)$" | fzf)"'
 
 alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`

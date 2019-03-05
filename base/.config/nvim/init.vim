@@ -3,7 +3,6 @@ Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
@@ -12,6 +11,8 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
+let g:plug_url_format='https://git::@github.com/%s.git'
+Plug 'kevinywlui/vim-snippets'
 call plug#end()
 
 " airline/tagbar

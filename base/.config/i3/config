@@ -148,7 +148,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-exec --no-startup-id redshift -t 5400:2700
+exec --no-startup-id redshift -t 5000:2500
 exec --no-startup-id dunst
 exec --no-startup-id xsetroot -solid "#163d49"
 # exec --no-startup-id nm-applet

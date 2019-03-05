@@ -3,3 +3,8 @@
 	name = kevin lui
 [init]
 	templatedir = ~/.git_template
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
