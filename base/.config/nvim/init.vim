@@ -5,15 +5,25 @@ Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
 Plug 'majutsushi/tagbar'
 Plug 'wakatime/vim-wakatime'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
+Plug 'junegunn/fzf.vim'
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 call plug#end()
+
+" Mappings
+cmap w!! %!sudo tee > /dev/null %
+map <SPACE> :w <ENTER>
+nmap <silent> <leader>h :History<CR>
+nmap <silent> <leader>t :TagbarToggle<CR>
+nmap <silent> <leader>f :ALEFix<CR>
+nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 
 " airline/tagbar
 let g:airline#extensions#tagbar#flags = 'f'
@@ -24,10 +34,12 @@ let g:ale_linters = {
             \   'sh': ['shfmt'],
             \}
 let g:ale_fixers = {
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
             \   'python': ['yapf'],
             \}
 
 let g:ale_tex_chktex_options = "-n 3 13"
+let g:ale_python_pycodestyle_options = "--ignore='E741'"
 
 " vimwiki
 " let g:vimwiki_list = [{'path': '~/vimwiki/',
@@ -104,8 +116,3 @@ set nojoinspaces
 set background=dark
 colorscheme gruvbox
 
-" Mappings
-cmap w!! %!sudo tee > /dev/null %
-map <SPACE> :w <ENTER>
-map <F2> :noh <ENTER>
-map <F4> :TagbarToggle <ENTER>
