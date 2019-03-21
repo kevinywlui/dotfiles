@@ -1,20 +1,15 @@
-source ~/bin/antigen/bin/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle clvv/fasd fasd
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
+source ~/bin/zplug/init.zsh
 
 
-# Load the theme.
-antigen theme candy
+zplug "agkozak/agkozak-zsh-prompt"
+zplug "clvv/fasd", as:command, use:fasd
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load
 
-# Tell Antigen that you're done.
-antigen apply
-
+# antigen bundle git
+# antigen bundle clvv/fasd fasd
+# antigen bundle zsh-users/zsh-completions
+# antigen bundle zsh-users/zsh-syntax-highlighting
 fignore=(\~ aux pdf log)
 
 o () {
