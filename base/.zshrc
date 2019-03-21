@@ -17,6 +17,7 @@ o () {
 }
 
 eval "$(fasd --init auto)"
+alias ls='ls --color'
 alias vim='nvim'
 alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
