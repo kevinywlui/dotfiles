@@ -5,11 +5,8 @@ zplug "agkozak/agkozak-zsh-prompt"
 zplug "clvv/fasd", as:command, use:fasd
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug load
+bindkey -e
 
-# antigen bundle git
-# antigen bundle clvv/fasd fasd
-# antigen bundle zsh-users/zsh-completions
-# antigen bundle zsh-users/zsh-syntax-highlighting
 fignore=(\~ aux pdf log)
 
 o () {
@@ -27,6 +24,7 @@ alias sage='~/sage/sage'
 eval `dircolors ~/.dircolors`
 alias q='sage -btp ~/sage/src/sage/rings/number_field'
 alias sq='sage -btp ~/sage/src/sage/rings/number_field'
+alias gwip='git add -A && git commit --no-verify -m "WIP"'
 
 
 gq () { 
