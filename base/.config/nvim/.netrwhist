@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/klui/Documents/general_exam_paper'
 let g:netrw_dirhist_2='/home/klui/.sage'
 let g:netrw_dirhist_3='/home/klui/sage/src/sage/rings/finite_rings'
+let g:netrw_dirhist_4='/home/klui/Code/kevinywlui.github.io/su18m340'
+let g:netrw_dirhist_5='/home/klui/Code/kevinywlui.github.io/m308exams'

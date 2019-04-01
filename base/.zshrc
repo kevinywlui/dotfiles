@@ -7,8 +7,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug load
 bindkey -e
 
-fignore=(\~ aux pdf log)
-
 o () {
     (($# == 1)) && xdg-open "$1" &>/dev/null & disown
 }

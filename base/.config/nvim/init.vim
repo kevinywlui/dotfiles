@@ -25,6 +25,9 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>f :ALEFix<CR>
 nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 
+setlocal spell
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " airline/tagbar
 let g:airline#extensions#tagbar#flags = 'f'
 
