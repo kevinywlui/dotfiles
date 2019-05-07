@@ -19,10 +19,11 @@ alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
 
 alias sage='~/sage/sage'
+alias sage_arch='/usr/bin/sage'
 eval `dircolors ~/.dircolors`
-alias q='sage -btp ~/sage/src/sage/rings/number_field'
-alias sq='sage -btp ~/sage/src/sage/rings/number_field'
+alias sage_test='cd ~/sage; sage -btp ~/sage/src/sage/modular/abvar/abvar.py'
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
+alias gwip_push='git add -A && git commit --no-verify -m "WIP" && git push -f me @:wip'
 
 
 gq () { 

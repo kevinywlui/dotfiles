@@ -150,8 +150,12 @@ bindsym $mod+minus scratchpad show
 
 exec --no-startup-id redshift -t 5000:2500
 exec --no-startup-id dunst
+exec --no-startup-id cmst
 exec --no-startup-id xsetroot -solid "#163d49"
-# exec --no-startup-id nm-applet
+# exec --no-startup-id minetime
+
+# exec --no-startup-id "sh -c 'sleep 10; exec calibre'"
+# i3-msg "[title="^calibre"] move scratchpad"
 
 
 default_border pixel 4

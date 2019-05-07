@@ -8,3 +8,5 @@
 	br = branch
 	ci = commit
 	st = status
+[core]
+	excludesfile = /home/klui/.gitignore_global

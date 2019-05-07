@@ -13,6 +13,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 call plug#end()
@@ -24,6 +25,9 @@ nmap <silent> <leader>h :History<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>f :ALEFix<CR>
 nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
+
+nmap <silent> <C-j> :cn<CR>
+nmap <silent> <C-k> :cp<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -56,6 +60,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:tex_conceal = ""
 let g:vimtex_quickfix_mode = 0
+" let g:vimtex_compiler_method = 'latexrun'
 "
 
 let g:vimtex_quickfix_latexlog = {
@@ -106,16 +111,20 @@ set hlsearch
 set undofile
 set undodir=~/.vimtmp/undo
 silent !mkdir -p ~/.vimtmp/undo
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-" autocmd bufreadpre *.py  setlocal textwidth=0
-set textwidth=79
-set expandtab
-set autoindent
 set fileformat=unix
-set nojoinspaces
-
+set nojoinspaces 
 set background=dark
 colorscheme gruvbox
+au Filetype python
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal shiftwidth=4 |
+    \ setlocal textwidth=79 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
+    \ setlocal fileformat=unix
 
+au Filetype yaml
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2
