@@ -17,13 +17,14 @@ alias vim='nvim'
 alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
+alias n='nnn'
 
 alias sage='~/sage/sage'
 alias sage_arch='/usr/bin/sage'
 eval `dircolors ~/.dircolors`
 alias sage_test='cd ~/sage; sage -btp ~/sage/src/sage/modular/abvar/abvar.py'
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
-alias gwip_push='git add -A && git commit --no-verify -m "WIP" && git push -f me @:wip'
+alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @:wip'
 
 
 gq () { 

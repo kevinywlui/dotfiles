@@ -37,7 +37,7 @@ let g:airline#extensions#tagbar#flags = 'f'
 
 " ale
 let g:ale_linters = {
-            \   'python': ['pycodestyle'],
+            \   'python': ['flake8'],
             \   'sh': ['shfmt'],
             \}
 let g:ale_fixers = {
@@ -115,14 +115,18 @@ set fileformat=unix
 set nojoinspaces 
 set background=dark
 colorscheme gruvbox
+set tabstop=4 
+set softtabstop=4 
+set shiftwidth=4 
+set textwidth=79 
+set expandtab 
+set autoindent 
+set fileformat=unix
 au Filetype python
     \ setlocal tabstop=4 |
     \ setlocal softtabstop=4 |
     \ setlocal shiftwidth=4 |
     \ setlocal textwidth=79 |
-    \ setlocal expandtab |
-    \ setlocal autoindent |
-    \ setlocal fileformat=unix
 
 au Filetype yaml
     \ setlocal tabstop=2 |
