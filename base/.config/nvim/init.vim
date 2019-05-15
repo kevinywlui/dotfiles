@@ -1,8 +1,7 @@
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
@@ -10,10 +9,11 @@ Plug 'majutsushi/tagbar'
 Plug 'wakatime/vim-wakatime'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'SirVer/ultisnips'
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 call plug#end()
@@ -32,8 +32,6 @@ nmap <silent> <C-k> :cp<CR>
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" airline/tagbar
-let g:airline#extensions#tagbar#flags = 'f'
 
 " ale
 let g:ale_linters = {
@@ -122,13 +120,14 @@ set textwidth=79
 set expandtab 
 set autoindent 
 set fileformat=unix
-au Filetype python
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
-    \ setlocal shiftwidth=4 |
-    \ setlocal textwidth=79 |
 
-au Filetype yaml
-    \ setlocal tabstop=2 |
-    \ setlocal softtabstop=2 |
-    \ setlocal shiftwidth=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }

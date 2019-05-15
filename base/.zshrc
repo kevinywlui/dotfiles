@@ -18,6 +18,7 @@ alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
 alias n='nnn'
+alias j='cd ~/notebooks/; jupyter notebook'
 
 alias sage='~/sage/sage'
 alias sage_arch='/usr/bin/sage'

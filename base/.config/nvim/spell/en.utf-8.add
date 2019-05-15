@@ -67,3 +67,5 @@ refactor
 hecke
 tensoring
 QQ
+ValueError
+J0
