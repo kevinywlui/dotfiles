@@ -1,24 +1,36 @@
+" vim:fdm=marker
+
+" vimplug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
+
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
+
 Plug 'majutsushi/tagbar'
-Plug 'wakatime/vim-wakatime'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
-Plug 'Vimjas/vim-python-pep8-indent'
 
-Plug 'SirVer/ultisnips'
+Plug 'wakatime/vim-wakatime'
+
+Plug 'petRUShka/vim-magma'
+
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
+Plug 'goerz/jupytext.vim'
+
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
+Plug 'SirVer/ultisnips'
 call plug#end()
 
-" Mappings
+" }}}
+
+" mappings {{{
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
@@ -31,9 +43,9 @@ nmap <silent> <C-k> :cp<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+}}}
 
-
-" ale
+" ale {{{
 let g:ale_linters = {
             \   'python': ['flake8'],
             \   'sh': ['shfmt'],
@@ -45,22 +57,19 @@ let g:ale_fixers = {
 
 let g:ale_tex_chktex_options = "-n 3 13"
 let g:ale_python_pycodestyle_options = "--ignore='E741'"
+}}}
 
-" vimwiki
-" let g:vimwiki_list = [{'path': '~/vimwiki/',
-"             \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" vimwiki {{{
 let g:vimwiki_hl_headers = 1
-" let g:vimwiki_url_maxsave = 0
+let g:vimwiki_conceallevel = 0
+}}}
 
-" vimtex
+" vimtex {{{
 let g:tex_flavor = "latex"
-let g:vim_markdown_folding_disabled = 1
 let g:vimtex_view_method = 'zathura'
 let g:tex_conceal = ""
 let g:vimtex_quickfix_mode = 0
-" let g:vimtex_compiler_method = 'latexrun'
-"
-
 let g:vimtex_quickfix_latexlog = {
             \ 'default' : 1,
             \ 'general' : 1,
@@ -79,7 +88,22 @@ let g:vimtex_quickfix_latexlog = {
             \   'titlesec' : 1,
             \ },
             \}
+}}}
 
+" lightline {{{
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+}}}
+
+" vim settings {{{
 filetype plugin indent on
 set conceallevel=0
 set autoread
@@ -120,14 +144,5 @@ set textwidth=79
 set expandtab 
 set autoindent 
 set fileformat=unix
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+set foldmethod=syntax
+}}}
