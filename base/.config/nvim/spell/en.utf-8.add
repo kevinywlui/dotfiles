@@ -69,3 +69,5 @@ tensoring
 QQ
 ValueError
 J0
+precompose
+PID

@@ -3,6 +3,7 @@
 " vimplug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
@@ -15,19 +16,21 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'wakatime/vim-wakatime'
 
-Plug 'petRUShka/vim-magma'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
-Plug 'goerz/jupytext.vim'
 
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
 
+" }}}
+
+" indentline {{{
+let g:indentLine_setConceal = 0
 " }}}
 
 " mappings {{{
@@ -38,12 +41,13 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>f :ALEFix<CR>
 nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 
+nnoremap <leader><space> :nohlsearch<CR>
 nmap <silent> <C-j> :cn<CR>
 nmap <silent> <C-k> :cp<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-}}}
+" }}}
 
 " ale {{{
 let g:ale_linters = {
@@ -57,13 +61,12 @@ let g:ale_fixers = {
 
 let g:ale_tex_chktex_options = "-n 3 13"
 let g:ale_python_pycodestyle_options = "--ignore='E741'"
-}}}
-
+" }}}
 
 " vimwiki {{{
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_conceallevel = 0
-}}}
+" }}}
 
 " vimtex {{{
 let g:tex_flavor = "latex"
@@ -88,7 +91,7 @@ let g:vimtex_quickfix_latexlog = {
             \   'titlesec' : 1,
             \ },
             \}
-}}}
+" }}}
 
 " lightline {{{
 let g:lightline = {
@@ -101,7 +104,7 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-}}}
+" }}}
 
 " vim settings {{{
 filetype plugin indent on
@@ -145,4 +148,6 @@ set expandtab
 set autoindent 
 set fileformat=unix
 set foldmethod=syntax
-}}}
+set lazyredraw
+set foldlevelstart=10 
+" }}}

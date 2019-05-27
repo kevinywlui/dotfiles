@@ -27,6 +27,8 @@ alias sage_test='cd ~/sage; sage -btp ~/sage/src/sage/modular/abvar/abvar.py'
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
 alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @:wip'
 
+alias jsync='jupytext --sync --to py'
+
 
 gq () { 
     gcalcli --calendar "Main Calendar" quick "$1"

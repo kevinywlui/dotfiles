@@ -60,6 +60,19 @@ format() {
 }
 
 #------------------------------------------------------------------------
+DUPLEX="output:analog-stereo+input:analog-stereo"
+HDMI="output:hdmi-stereo-extra1"
+CARD="alsa_card.pci-0000_00_1f.3"
+
+toggle() {
+    CURRENT=`ponymix -c $CARD get-profile`
+    if [[ $CURRENT == $DUPLEX ]]; then
+        /usr/bin/ponymix -c $CARD set-profile $HDMI
+    else
+        /usr/bin/ponymix -c $CARD set-profile $DUPLEX
+    fi
+
+}
 
 case $BLOCK_BUTTON in
   3) amixer -q -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
