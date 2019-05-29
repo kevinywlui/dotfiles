@@ -61,7 +61,7 @@ format() {
 
 #------------------------------------------------------------------------
 DUPLEX="output:analog-stereo+input:analog-stereo"
-HDMI="output:hdmi-stereo-extra1"
+HDMI="output:hdmi-stereo"
 CARD="alsa_card.pci-0000_00_1f.3"
 
 toggle() {

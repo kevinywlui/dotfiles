@@ -3,7 +3,6 @@
 " vimplug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
@@ -15,11 +14,15 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 
 Plug 'wakatime/vim-wakatime'
+Plug 'michaeljsmith/vim-indent-object'
 
+Plug 'rhysd/clever-f.vim'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
+Plug 'scrooloose/nerdtree'
 
 
 let g:plug_url_format='https://git::@github.com/%s.git'
@@ -29,8 +32,16 @@ call plug#end()
 
 " }}}
 
+" clever-f {{{
+let g:clever_f_across_no_line = 1
+let g:clever_f_fix_key_direction = 1
+let g:clever_f_timeout_ms = 3000
+" }}}
+
+
 " indentline {{{
-let g:indentLine_setConceal = 0
+let g:indentLine_faster = 1
+" let g:indentLine_setConceal = 0
 " }}}
 
 " mappings {{{
@@ -44,6 +55,7 @@ nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nmap <silent> <C-j> :cn<CR>
 nmap <silent> <C-k> :cp<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -108,7 +120,6 @@ let g:lightline = {
 
 " vim settings {{{
 filetype plugin indent on
-set conceallevel=0
 set autoread
 set autowrite
 set nobackup
