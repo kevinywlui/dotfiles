@@ -36,6 +36,10 @@ call plug#end()
 
 " }}}
 
+" experimental {{{
+nnoremap <C-p> :Files<Cr>
+" }}}
+
 " rainbow_paratheses {{{
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 " }}}
@@ -55,6 +59,7 @@ let g:indentLine_faster = 1
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
+nmap <silent> <leader>o :FZF<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 nmap <silent> <leader>f :ALEFix<CR>
 nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
