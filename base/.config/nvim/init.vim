@@ -16,6 +16,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
 
+Plug 'kien/ctrlp.vim'
+
 Plug 'rhysd/clever-f.vim'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -24,6 +26,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'junegunn/vim-slash'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
@@ -32,12 +36,15 @@ call plug#end()
 
 " }}}
 
+" rainbow_paratheses {{{
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+" }}}
+
 " clever-f {{{
 let g:clever_f_across_no_line = 1
 let g:clever_f_fix_key_direction = 1
 let g:clever_f_timeout_ms = 3000
 " }}}
-
 
 " indentline {{{
 let g:indentLine_faster = 1
