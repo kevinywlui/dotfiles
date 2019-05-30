@@ -16,7 +16,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
 
-Plug 'kien/ctrlp.vim'
 
 Plug 'rhysd/clever-f.vim'
 
