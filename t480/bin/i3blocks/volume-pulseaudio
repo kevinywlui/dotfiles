@@ -121,7 +121,8 @@ function toggle_device {
 case "$BLOCK_BUTTON" in
     1) toggle_device ;;
     2) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
-    3) set_default_playback_device_next -1 ;;
+    3) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
+    # 3) set_default_playback_device_next -1 ;;
     4) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%+ ;;
     5) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY $AUDIO_DELTA%- ;;
 esac

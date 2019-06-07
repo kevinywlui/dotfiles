@@ -16,7 +16,7 @@ alias ls='ls --color'
 alias vim='nvim'
 alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
-alias p='o "$(ag -U -g "(pdf|djvu)$" | fzf)"'
+alias p='o "$(rg --files -g "*pdf" | fzf)"'
 alias n='nnn'
 alias j='cd ~/notebooks/; jupyter lab'
 

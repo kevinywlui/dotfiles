@@ -11,7 +11,11 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
+
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-slash'
+Plug 'junegunn/vim-easy-align'
+
 
 Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
@@ -25,8 +29,6 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'junegunn/vim-slash'
-Plug 'junegunn/rainbow_parentheses.vim'
 
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
@@ -37,11 +39,13 @@ call plug#end()
 
 " experimental {{{
 nnoremap <C-p> :Files<Cr>
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
-" rainbow_paratheses {{{
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-" }}}
 
 " clever-f {{{
 let g:clever_f_across_no_line = 1
