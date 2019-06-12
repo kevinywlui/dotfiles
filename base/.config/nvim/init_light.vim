@@ -1,12 +1,10 @@
-set termguicolors
+" vim:fdm=marker
+
+" vimplug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
-Plug 'sainnhe/vim-color-forest-night'
-Plug 'morhetz/gruvbox'
-
 Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
-
+Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 
@@ -14,9 +12,14 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
+
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'wakatime/vim-wakatime'
+Plug 'michaeljsmith/vim-indent-object'
 
 
 Plug 'rhysd/clever-f.vim'
@@ -33,8 +36,15 @@ Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
 
+" }}}
 
+" experimental {{{
 nnoremap <C-p> :Files<Cr>
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 function! s:Light_ColorScheme()
     set background=light
@@ -43,20 +53,37 @@ endfunction
 command LightCS call s:Light_ColorScheme()
 nmap <silent> <leader>c :LightCS<CR>
 
-set background=dark
-colorscheme forest-night
-let g:lightline = {}
-let g:lightline.colorscheme = 'forest_night'
+let g:limelight_conceal_ctermfg = 'gray'
+function! s:goyo_enter()
+    set scrolloff=999
+    Limelight
+    ALEDisable
+endfunction
+
+function! s:goyo_leave()
+    set scrolloff=5
+    Limelight!
+    ALEEnable
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" }}}
 
 
-
+" clever-f {{{
 let g:clever_f_across_no_line = 1
 let g:clever_f_fix_key_direction = 1
 let g:clever_f_timeout_ms = 3000
+" }}}
 
+" indentline {{{
 let g:indentLine_faster = 1
 " let g:indentLine_setConceal = 0
+" }}}
 
+" mappings {{{
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
@@ -72,7 +99,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" }}}
 
+" ale {{{
 let g:ale_linters = {
             \   'python': ['flake8'],
             \   'sh': ['shfmt'],
@@ -84,10 +113,14 @@ let g:ale_fixers = {
 
 let g:ale_tex_chktex_options = "-n 3 13"
 let g:ale_python_pycodestyle_options = "--ignore='E741'"
+" }}}
 
+" vimwiki {{{
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_conceallevel = 0
+" }}}
 
+" vimtex {{{
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
 let g:tex_conceal = ""
@@ -110,17 +143,22 @@ let g:vimtex_quickfix_latexlog = {
             \   'titlesec' : 1,
             \ },
             \}
+" }}}
 
+" lightline {{{
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
+      \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+" }}}
 
+" vim settings {{{
 filetype plugin indent on
 set autoread
 set autowrite
@@ -151,6 +189,8 @@ set undodir=~/.vimtmp/undo
 silent !mkdir -p ~/.vimtmp/undo
 set fileformat=unix
 set nojoinspaces 
+set background=dark
+colorscheme gruvbox
 set tabstop=4 
 set softtabstop=4 
 set shiftwidth=4 
@@ -161,3 +201,7 @@ set fileformat=unix
 set foldmethod=syntax
 set lazyredraw
 set foldlevelstart=10 
+
+set background=light
+colorscheme solarized
+" }}}

@@ -14,6 +14,7 @@ o () {
 eval "$(fasd --init auto)"
 alias ls='ls --color'
 alias vim='nvim'
+alias viml='nvim -c "set background=light | colorscheme solarized"'
 alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(rg --files -g "*pdf" | fzf)"'
