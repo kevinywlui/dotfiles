@@ -35,13 +35,6 @@ call plug#end()
 
 nnoremap <C-p> :Files<Cr>
 
-function! s:Light_ColorScheme()
-    set background=light
-    colorscheme solarized
-endfunction
-command LightCS call s:Light_ColorScheme()
-nmap <silent> <leader>c :LightCS<CR>
-
 set background=dark
 colorscheme forest-night
 let g:lightline = {}
