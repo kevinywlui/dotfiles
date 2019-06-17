@@ -115,7 +115,6 @@ set autowrite
 set nobackup
 set encoding=utf-8
 set noswapfile
-set nrformats=
 set clipboard=unnamedplus
 set timeout timeoutlen=1000 ttimeoutlen=100
 set backspace=eol,indent,start
@@ -131,8 +130,6 @@ set wrap
 set ignorecase
 set smartcase
 set incsearch
-set splitbelow
-set splitright
 set hlsearch
 set undofile
 set undodir=~/.vimtmp/undo
@@ -146,6 +143,4 @@ set textwidth=79
 set expandtab 
 set autoindent 
 set fileformat=unix
-set foldmethod=syntax
 set lazyredraw
-set foldlevelstart=10 
