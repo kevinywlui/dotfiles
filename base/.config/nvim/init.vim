@@ -19,7 +19,6 @@ Plug 'junegunn/vim-slash'
 Plug 'wakatime/vim-wakatime'
 
 
-Plug 'rhysd/clever-f.vim'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -50,12 +49,8 @@ let g:lightline.colorscheme = 'forest_night'
 
 
 
-let g:clever_f_across_no_line = 1
-let g:clever_f_fix_key_direction = 1
-let g:clever_f_timeout_ms = 3000
 
 let g:indentLine_faster = 1
-" let g:indentLine_setConceal = 0
 
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
