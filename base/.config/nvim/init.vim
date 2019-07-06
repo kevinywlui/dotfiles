@@ -31,7 +31,20 @@ let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
-
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 nnoremap <C-p> :Files<Cr>
 
@@ -40,10 +53,8 @@ colorscheme forest-night
 let g:lightline = {}
 let g:lightline.colorscheme = 'forest_night'
 
-
-
-
 let g:indentLine_faster = 1
+let g:indentLine_setConceal = 0
 
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>

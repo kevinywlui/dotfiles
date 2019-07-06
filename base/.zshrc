@@ -1,9 +1,15 @@
 source ~/bin/zplug/init.zsh
 
+# add colored man pages
+# add autosuggestions
+# dircolors - for fancy LS COLORS
 
 zplug "agkozak/agkozak-zsh-prompt"
+AGKOZAK_LEFT_PROMPT_ONLY=1
 zplug "clvv/fasd", as:command, use:fasd
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug load
 bindkey -e
 
@@ -30,6 +36,14 @@ alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @
 
 alias jsync='jupytext --sync --to py'
 
+alias in='task add +in'
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
+alias think='tickle +1d'
 
 gq () { 
     gcalcli --calendar "Main Calendar" quick "$1"
