@@ -1,15 +1,11 @@
 source ~/bin/zplug/init.zsh
 
-# add colored man pages
-# add autosuggestions
-# dircolors - for fancy LS COLORS
-
 zplug "agkozak/agkozak-zsh-prompt"
 AGKOZAK_LEFT_PROMPT_ONLY=1
 zplug "clvv/fasd", as:command, use:fasd
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
-zplug "plugins/colored-man-pages",   from:oh-my-zsh
+zplug "lib/history.zsh", from:oh-my-zsh
 zplug load
 bindkey -e
 
@@ -20,12 +16,10 @@ o () {
 eval "$(fasd --init auto)"
 alias ls='ls --color'
 alias vim='nvim'
-alias viml='nvim -c "set background=light | colorscheme solarized"'
-alias gg='gcalcli --refresh agenda'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(rg --files -g "*pdf" | fzf)"'
 alias n='nnn'
-alias j='cd ~/notebooks/; jupyter lab'
+alias j='cd ~/Code/notebooks/; jupyter lab'
 
 alias sage='~/sage/sage'
 alias sage_arch='/usr/bin/sage'
@@ -44,11 +38,6 @@ tickle () {
 }
 alias tick=tickle
 alias think='tickle +1d'
-
-gq () { 
-    gcalcli --calendar "Main Calendar" quick "$1"
-    gcalcli --refresh agenda
-}
 
 # Dear future Kevin, you may be tempted to put environment variable here.
 # Please put them in ~/.zshenv instead.

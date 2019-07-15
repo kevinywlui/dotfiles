@@ -23,7 +23,6 @@ bindsym $mod+Shift+t exec /home/klui/bin/hotplug.sh
 
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec kitty --config ~/.config/kitty/kitty_light.conf
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -116,6 +115,7 @@ bindsym $mod+e exec "evince"
 bindsym $mod+g exec "chromium"
 bindsym $mod+w exec "qutebrowser"
 bindsym $mod+t exec "telegram-desktop"
+bindsym $mod+z exec "Zulip-3.0.0-x86_64.AppImage"
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -128,7 +128,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#163d49"
 
 
-default_border pixel 4
+default_border pixel 2
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
