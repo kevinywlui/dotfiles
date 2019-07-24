@@ -30,6 +30,22 @@ alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @
 
 alias jsync='jupytext --sync --to py'
 
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=1000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=1000               #Number of history entries to save to disk
+HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
+if [[ -f $HOME/.ssh/config ]]; then
+  hosts=($(egrep '^Host.*' $HOME/.ssh/config | awk '{print $2}' | grep -v '^*' | sed -e 's/\.*\*$//'))
+  zstyle ':completion:*:hosts' hosts $hosts
+fi
+
 alias in='task add +in'
 tickle () {
     deadline=$1
@@ -38,6 +54,5 @@ tickle () {
 }
 alias tick=tickle
 alias think='tickle +1d'
-
 # Dear future Kevin, you may be tempted to put environment variable here.
 # Please put them in ~/.zshenv instead.

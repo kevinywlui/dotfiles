@@ -16,7 +16,7 @@ Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 
 
 
