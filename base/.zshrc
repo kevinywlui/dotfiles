@@ -1,5 +1,6 @@
 source ~/bin/zplug/init.zsh
 
+fpath+=~/.zfunc
 zplug "agkozak/agkozak-zsh-prompt"
 AGKOZAK_LEFT_PROMPT_ONLY=1
 zplug "clvv/fasd", as:command, use:fasd
