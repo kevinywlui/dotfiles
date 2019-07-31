@@ -14,7 +14,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 
 Plug 'majutsushi/tagbar'
-" Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 " Plug 'wakatime/vim-wakatime'
@@ -63,8 +62,6 @@ map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
 nmap <silent> <leader>o :FZF<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
-" nmap <silent> <leader>f :ALEFix<CR>
-" nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 
 nnoremap <leader><space> :nohlsearch<CR>
 nmap <silent> <C-j> :cn<CR>
@@ -74,17 +71,6 @@ map <C-n> :NERDTreeToggle<CR>
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-let g:ale_linters = {
-            \   'python': ['flake8'],
-            \   'sh': ['shfmt'],
-            \}
-let g:ale_fixers = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \   'python': ['yapf'],
-            \}
-
-let g:ale_tex_chktex_options = "-n 3 13"
-let g:ale_python_pycodestyle_options = "--ignore='E741'"
 
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_conceallevel = 0
