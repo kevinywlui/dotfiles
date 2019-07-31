@@ -25,11 +25,6 @@ Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
 
-
-
-set background=dark
-
-
 filetype plugin indent on
 set autoread
 set autowrite
