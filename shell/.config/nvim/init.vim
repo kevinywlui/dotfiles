@@ -1,7 +1,5 @@
 set termguicolors
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
-Plug 'sainnhe/vim-color-forest-night'
 Plug 'morhetz/gruvbox'
 
 Plug 'itchyny/lightline.vim'
@@ -50,9 +48,7 @@ let g:fzf_colors =
 nnoremap <C-p> :Files<Cr>
 
 set background=dark
-colorscheme forest-night
 let g:lightline = {}
-let g:lightline.colorscheme = 'forest_night'
 
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
