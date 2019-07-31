@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/etc/NetworkManager/conf.d'
+let g:netrw_dirhist_2='/home/klui/m308/.git'
+let g:netrw_dirhist_3='/home/klui/.screenlayout'
+let g:netrw_dirhist_4='/home/klui/pre-commit-sage'
+let g:netrw_dirhist_5='/usr/share/jupyter/kernels/sagemath'
+let g:netrw_dirhist_6='/home/klui/.local/share/jupyter/kernels/sage_custom'
+let g:netrw_dirhist_7='/home/klui/sage/src/sage/rings/number_field'
