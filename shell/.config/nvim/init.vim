@@ -14,8 +14,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf.vim'
 
-
-
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
@@ -30,10 +28,6 @@ call plug#end()
 
 
 set background=dark
-
-let g:indentLine_faster = 1
-let g:indentLine_setConceal = 0
-
 
 
 filetype plugin indent on
