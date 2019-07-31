@@ -10,10 +10,11 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 
+Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 
 Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 " Plug 'wakatime/vim-wakatime'
@@ -62,8 +63,8 @@ map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
 nmap <silent> <leader>o :FZF<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
-nmap <silent> <leader>f :ALEFix<CR>
-nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
+" nmap <silent> <leader>f :ALEFix<CR>
+" nmap <silent> <leader>a :let g:ale_fix_on_save = 1<CR>
 
 nnoremap <leader><space> :nohlsearch<CR>
 nmap <silent> <C-j> :cn<CR>
@@ -156,7 +157,10 @@ set expandtab
 set autoindent 
 set fileformat=unix
 set lazyredraw
-
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 " if hidden is not set, TextEdit might fail.
 set hidden
 
