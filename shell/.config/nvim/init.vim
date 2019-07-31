@@ -1,20 +1,18 @@
 set termguicolors
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+
+Plug 'chriskempson/base16-vim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 
-Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 
+Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-slash'
-" Plug 'wakatime/vim-wakatime'
 
 
 
@@ -22,33 +20,20 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
-Plug 'scrooloose/nerdtree'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'wakatime/vim-wakatime'
 
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+
 
 nnoremap <C-p> :Files<Cr>
 
 set background=dark
-let g:lightline = {}
 
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
@@ -67,42 +52,6 @@ map <C-n> :NERDTreeToggle<CR>
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_conceallevel = 0
-
-let g:tex_flavor = "latex"
-let g:vimtex_view_method = 'zathura'
-let g:tex_conceal = ""
-let g:vimtex_quickfix_mode = 0
-let g:vimtex_quickfix_latexlog = {
-            \ 'default' : 1,
-            \ 'general' : 1,
-            \ 'references' : 1,
-            \ 'overfull' : 1,
-            \ 'underfull' : 1,
-            \ 'font' : 1,
-            \ 'packages' : {
-            \   'default' : 1,
-            \   'natbib' : 1,
-            \   'biblatex' : 1,
-            \   'babel' : 1,
-            \   'hyperref' : 0,
-            \   'scrreprt' : 1,
-            \   'fixltx2e' : 1,
-            \   'titlesec' : 1,
-            \ },
-            \}
-
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
 
 filetype plugin indent on
 set autoread
@@ -264,3 +213,5 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+runtime! conf/*.vim
