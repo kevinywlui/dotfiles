@@ -23,6 +23,11 @@ Plug 'wakatime/vim-wakatime'
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets'
 Plug 'SirVer/ultisnips'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 
 filetype plugin indent on
@@ -60,6 +65,7 @@ set expandtab
 set autoindent 
 set fileformat=unix
 set lazyredraw
+set hidden
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
