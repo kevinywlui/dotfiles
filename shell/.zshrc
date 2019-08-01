@@ -56,4 +56,8 @@ tickle () {
 alias tick=tickle
 alias think='tickle +1d'
 # Dear future Kevin, you may be tempted to put environment variable here.
-# Please put them in ~/.zshenv instead.
+## Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")" Please put them in ~/.zshenv instead.
