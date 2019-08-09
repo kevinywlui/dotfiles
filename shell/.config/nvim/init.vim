@@ -21,7 +21,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'wakatime/vim-wakatime'
 
 let g:plug_url_format='https://git::@github.com/%s.git'
-Plug 'kevinywlui/vim-snippets'
+Plug 'kevinywlui/vim-snippets', { 'branch': 'develop' }
 Plug 'SirVer/ultisnips'
 
 Plug 'autozimu/LanguageClient-neovim', {
