@@ -11,7 +11,7 @@ zplug load
 bindkey -e
 
 o () {
-    (($# == 1)) && xdg-open "$1" &>/dev/null & disown
+    (($# == 1)) && xdg-open "$1" &>/dev/null & disown 
 }
 
 eval "$(fasd --init auto)"
@@ -41,6 +41,9 @@ HISTDUP=erase               #Erase duplicates in the history file
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 if [[ -f $HOME/.ssh/config ]]; then
   hosts=($(egrep '^Host.*' $HOME/.ssh/config | awk '{print $2}' | grep -v '^*' | sed -e 's/\.*\*$//'))
