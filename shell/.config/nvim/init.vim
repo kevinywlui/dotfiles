@@ -24,6 +24,10 @@ let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets', { 'branch': 'develop' }
 Plug 'SirVer/ultisnips'
 
+Plug 'dense-analysis/ale'
+
+
+
 call plug#end()
 
 filetype plugin indent on
