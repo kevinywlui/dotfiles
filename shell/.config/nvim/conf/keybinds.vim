@@ -3,6 +3,7 @@ nnoremap <C-p> :Files<Cr>
 cmap w!! %!sudo tee > /dev/null %
 map <SPACE> :w <ENTER>
 nmap <silent> <leader>h :History<CR>
+nmap <silent> <leader>g :GitFiles<CR>
 nmap <silent> <leader>o :FZF<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 
