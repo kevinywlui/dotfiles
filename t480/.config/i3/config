@@ -123,6 +123,7 @@ bindsym $mod+minus scratchpad show
 
 # startup programs
 exec --no-startup-id redshift
+exec --no-startup-id syncthing-gtk
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#163d49"
