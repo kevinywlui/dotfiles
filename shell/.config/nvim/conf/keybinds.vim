@@ -14,3 +14,5 @@ map <C-n> :NERDTreeToggle<CR>
 
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
