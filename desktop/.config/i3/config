@@ -115,13 +115,14 @@ bindsym $mod+e exec "evince"
 bindsym $mod+g exec "chromium"
 bindsym $mod+w exec "qutebrowser"
 bindsym $mod+t exec "telegram-desktop"
-bindsym $mod+z exec "Zulip-3.0.0-x86_64.AppImage"
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # startup programs
+exec --no-startup-id syncthing-gtk -m
+exec --no-startup-id telegram-default -startintray
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
