@@ -24,6 +24,7 @@ let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets', { 'branch': 'develop' }
 Plug 'SirVer/ultisnips'
 
+let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
 
 
@@ -31,41 +32,56 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 filetype plugin indent on
-set autoread
-set autowrite
-set nobackup
-set encoding=utf-8
-set noswapfile
-set clipboard=unnamedplus
-set timeout timeoutlen=1000 ttimeoutlen=100
-set backspace=eol,indent,start
-set scrolloff=5
-set showmode
-set showcmd
-set number
-set laststatus=2
 syntax on
+
+" set encoding
+set encoding=utf-8
+
+" no backup or swp files
+set nobackup
+set noswapfile
+
+" plus register is used by system
+set clipboard=unnamedplus
+
+" always at least 5 lines at the bottom
+set scrolloff=5
+
+" needed for some plugins
+set laststatus=2
+
+" show numbers on the left
+set number
+
+" allow mouse interactions
 set mouse=a
+
+" highlight matching delimiter
 set showmatch
-set wrap
+
+" ignore case unless a capital is given
 set ignorecase
 set smartcase
-set incsearch
-set hlsearch
+
+" persistent undos
 set undofile
 set undodir=~/.vimtmp/undo
 silent !mkdir -p ~/.vimtmp/undo
+
+" always use file endings
 set fileformat=unix
-set nojoinspaces 
-set tabstop=4 
-set softtabstop=4 
-set shiftwidth=4 
-set textwidth=79 
-set expandtab 
-set autoindent 
-set fileformat=unix
+
+" Tabs consistent with Python specs
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+
+" no redraws while performing macros
 set lazyredraw
-set hidden
+
+" use base16 to determine colorscheme
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
