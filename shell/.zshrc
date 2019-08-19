@@ -14,8 +14,11 @@ bindkey -e
 # Fasd 
 eval "$(fasd --init auto)"
 
-# Alias
+# REPORTTIME
+REPORTTIME=3
+TIMEFMT="'$fg[green]%J$reset_color' time: $fg[blue]%*E$reset_color, cpu: $fg[blue]%P$reset_color"
 
+# Alias
 o () {
     (($# == 1)) && xdg-open "$1" &>/dev/null & disown 
 }
