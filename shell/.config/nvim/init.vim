@@ -7,6 +7,7 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-fugitive'
 
