@@ -7,13 +7,18 @@ let g:ale_python_pyls_config = {
       \     }
       \   },
       \ }
+
 let g:ale_linters= {
-            \ 'python': ['pyls'],
-            \ 'tex': ['lacheck'],
-            \}
+\ 'sh' : ['shellcheck'],
+\ 'python': ['pyls'],
+\ 'tex': ['lacheck'],
+\ 'vim': ['vint'],
+\}
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black'],
+\   'sh' : ['shfmt'],
 \}
 
 " lint on save and enter

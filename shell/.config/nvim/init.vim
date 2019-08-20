@@ -83,7 +83,7 @@ set autoindent
 set lazyredraw
 
 " use base16 to determine colorscheme
-if filereadable(expand("~/.vimrc_background"))
+if filereadable(expand('~/.vimrc_background'))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
