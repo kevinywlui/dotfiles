@@ -15,7 +15,7 @@ bindkey -e
 eval "$(fasd --init auto)"
 
 # REPORTTIME
-REPORTTIME=3
+REPORTTIME=1
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[blue]%*E$reset_color, cpu: $fg[blue]%P$reset_color"
 
 # Alias
@@ -77,7 +77,6 @@ export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export MAKE='make -j 4'
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 
 # Python
