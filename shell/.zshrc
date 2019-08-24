@@ -93,3 +93,6 @@ export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 # Misc
 export TEXINPUTS="SAGE_ROOT/local/share/texmf//:"
+
+# GPG
+export GPG_TTY=$(tty)
