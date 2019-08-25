@@ -32,7 +32,6 @@ alias j='cd ~/Code/notebooks/; jupyter lab'
 
 alias sage='~/sage/sage'
 alias sage_arch='/usr/bin/sage'
-eval `dircolors ~/.dircolors`
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
 alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @:wip'
 
