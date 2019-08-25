@@ -1,7 +1,6 @@
 [user]
 	email = kevinywlui@gmail.com
 	name = kevin lui
-	signingkey = 748002E9
 [init]
 	templatedir = ~/.git_template
 [alias]
@@ -11,7 +10,3 @@
 	st = status
 [core]
 	excludesfile = /home/klui/.gitignore_global
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg
