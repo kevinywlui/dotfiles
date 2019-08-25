@@ -1,4 +1,3 @@
-zmodload zsh/zprof
 source ~/bin/zplug/init.zsh
 
 # Plugins
