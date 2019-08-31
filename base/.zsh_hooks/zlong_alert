@@ -1,0 +1,33 @@
+#! /usr/bin/zsh
+
+# Define what a long duration is
+zlong_duration=60
+
+# Need to set an initial timestamp otherwise, we'll be comparing an empty
+# string with an integer.
+zlong_timestamp=$EPOCHSECONDS
+
+# Define the alerting function, do the text processing here
+zlong_alert_func() {
+        local cmd=$1
+        local secs=$2
+        local ftime=$(printf '%dh:%dm:%ds\n' $(($secs/3600)) $(($secs%3600/60)) $(($secs%60)))
+	notify-send "Done: $1" "Time: $ftime"
+}
+
+zlong_alert_pre() {
+	zlong_timestamp=$EPOCHSECONDS
+	zlong_last_cmd=$1
+}
+
+zlong_alert_post() {
+        local duration=$(( $EPOCHSECONDS - $zlong_timestamp ))
+	local lasted_long=$(( $duration - $zlong_duration ))
+	if [[ $lasted_long -gt 0 && ! -z $zlong_last_cmd ]]; then
+		zlong_alert_func $zlong_last_cmd duration
+	fi
+        zlong_last_cmd=''
+}
+
+add-zsh-hook preexec zlong_alert_pre
+add-zsh-hook precmd zlong_alert_post
