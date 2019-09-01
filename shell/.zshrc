@@ -70,7 +70,7 @@ if command -v exa >/dev/null 2>&1; then
     alias l="exa --git --color=automatic"
 fi
 
-source ~/.zsh_hooks/zlong_alert
+source ~/.zsh_hooks/zlong_alert.zsh
 
 
 # Environment variables
