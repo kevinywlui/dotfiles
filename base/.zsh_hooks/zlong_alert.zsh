@@ -2,7 +2,7 @@
 zlong_ignore_cmds='vim ssh'
 
 # Define what a long duration is
-zlong_duration=60
+zlong_duration=15
 
 # Need to set an initial timestamps otherwise, we'll be comparing an empty
 # string with an integer.
@@ -26,7 +26,7 @@ zlong_alert_post() {
     local duration=$(($EPOCHSECONDS - $zlong_timestamp))
     local lasted_long=$(($duration - $zlong_duration))
     local cmd_head=$(echo $zlong_last_cmd | cut -d ' ' -f 1)
-    if [[ $lasted_long -gt 0 && ! -z $zlong_last_cmd && ! *"$cmd_head"* == zlong_ignore_cmds ]]; then
+    if [[ $lasted_long -gt 0 && ! -z $zlong_last_cmd && ! *"$cmd_head"*==$zlong_ignore_cmds ]]; then
         zlong_alert_func $zlong_last_cmd duration
     fi
     zlong_last_cmd=''
