@@ -132,24 +132,7 @@ exec --no-startup-id ~/bin/set_monitor.sh
 
 default_border pixel 4
 hide_edge_borders smart
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        position top
-#        status_command i3blocks
-#        font pango:Fira Code 13, FontAwesome 11
-#        colors {
-#        background #2a2a2a
-#        statusline #c0c0c0
-#        separator  #aa7030
 
-#        #color class       border  back.   text
-#        focused_workspace  #ff7030 #ff7030 #ffffff
-#        active_workspace   #555555 #555555 #ffffff
-#        inactive_workspace #2b2b2b #2b2b2b #aaaaaa
-#        urgent_workspace   #2f343a #900000 #ffffff
-#        }
-#}
 # set primary gruvbox colorscheme colors
 set $bg #282828
 set $red #cc241d
