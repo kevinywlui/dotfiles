@@ -32,8 +32,6 @@ zlong_alert_post() {
     then
         zlong_alert_func $zlong_last_cmd duration
     fi
-    echo $cmd_head
-    echo $zlong_ignore_cmds
     zlong_last_cmd=''
 }
 
