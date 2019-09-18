@@ -8,7 +8,7 @@ zplug "clvv/fasd", as:command, use:fasd
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "lib/history.zsh", from:oh-my-zsh
-zplug "kevinywlui/zlong_alert.zsh",
+zplug "kevinywlui/zlong_alert.zsh"
 zplug load
 bindkey -e
 
