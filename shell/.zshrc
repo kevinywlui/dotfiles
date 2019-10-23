@@ -28,7 +28,7 @@ alias vim='nvim'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(rg --files -g "*pdf" | fzf)"'
 alias n='nnn'
-alias j='cd ~/Code/notebooks/; jupyter lab'
+alias jl='jupyter lab'
 
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
 alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @:wip'
