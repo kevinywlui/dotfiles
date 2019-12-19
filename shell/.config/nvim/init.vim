@@ -76,12 +76,16 @@ silent !mkdir -p ~/.vimtmp/undo
 " always use file endings
 set fileformat=unix
 
+" autoindent
+set autoindent
+
+" tabs become spaces
+set expandtab
+
 " Tabs consistent with Python specs
 set softtabstop=4
 set shiftwidth=4
 set textwidth=79
-set expandtab
-set autoindent
 
 " no redraws while performing macros
 set lazyredraw
