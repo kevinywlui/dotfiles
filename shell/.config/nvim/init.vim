@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 
 
 Plug 'chriskempson/base16-vim'
