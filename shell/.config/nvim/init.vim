@@ -22,6 +22,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 Plug 'wakatime/vim-wakatime'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 let g:plug_url_format='https://git::@github.com/%s.git'
 Plug 'kevinywlui/vim-snippets', { 'branch': 'develop' }
 Plug 'SirVer/ultisnips'
@@ -87,6 +89,12 @@ if filereadable(expand('~/.vimrc_background'))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+" Shorter wait before writing to swap
+set updatetime=300
+
+" always show signcolumns
+set signcolumn=yes
 
 
 runtime! conf/*.vim
