@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'vim-scripts/google.vim'
 
 Plug 'wakatime/vim-wakatime'
 
