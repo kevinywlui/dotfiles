@@ -101,3 +101,5 @@ export TEXINPUTS="SAGE_ROOT/local/share/texmf//:"
 
 # GPG
 export GPG_TTY=$(tty)
+
+source /home/klui/.config/broot/launcher/bash/br
