@@ -1,5 +1,6 @@
 source ~/bin/zplug/init.zsh
 
+
 # Plugins
 
 zplug "agkozak/agkozak-zsh-prompt"
@@ -74,6 +75,7 @@ fi
 # Path
 export PATH=$PATH:~/.local/bin:~/bin
 export PATH=$PATH:~/pre-commit-sage
+export PATH=$PATH:$(go env GOBIN)
 export PGHOST="$HOME/postgres_data"
 
 # Commands
@@ -102,4 +104,6 @@ export TEXINPUTS="SAGE_ROOT/local/share/texmf//:"
 # GPG
 export GPG_TTY=$(tty)
 
-source /home/klui/.config/broot/launcher/bash/br
+# FZF source
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
