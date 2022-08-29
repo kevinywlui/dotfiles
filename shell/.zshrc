@@ -1,17 +1,26 @@
 source ~/bin/zplug/init.zsh
 
+zlong_duration=1
+zlong_ignorespace=true
 
 # Plugins
 
 zplug "agkozak/agkozak-zsh-prompt"
 AGKOZAK_LEFT_PROMPT_ONLY=1
-zplug "clvv/fasd", as:command, use:fasd
+# zplug "clvv/fasd", as:command, use:fasd
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "lib/history.zsh", from:oh-my-zsh
-zplug "kevinywlui/zlong_alert.zsh"
+zplug "chrisrhayden/zlong_alert.zsh"
+zplug "wookayin/fzf-fasd"
 zplug load
 bindkey -e
+
+bindkey '^ ' autosuggest-accept
+
+
+# nik
+source `go env GOPATH`/src/github.com/kevinywlui/nik/nik.zsh
 
 # Fasd 
 eval "$(fasd --init auto)"
@@ -28,8 +37,8 @@ alias ls='ls --color'
 alias vim='nvim'
 alias vw='vim ~/vimwiki/index.wiki'
 alias p='o "$(rg --files -g "*pdf" | fzf)"'
-alias n='nnn'
 alias jl='jupyter lab'
+alias xm='xmodmap ~/.Xmodmap'
 
 alias gwip='git add -A && git commit --no-verify -m "WIP"'
 alias gwip_push='git add -A && git commit --no-verify -m "WIP"; git push -f me @:wip'
@@ -81,7 +90,7 @@ export PGHOST="$HOME/postgres_data"
 # Commands
 export EDITOR='nvim'
 export VISUAL='nvim'
-export MANPAGER='nvim +Man!'
+# export MANPAGER='nvim +Man!'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export MAKE='make -j 4'
 
@@ -107,3 +116,5 @@ export GPG_TTY=$(tty)
 # FZF source
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+source /home/klui/.config/broot/launcher/bash/br

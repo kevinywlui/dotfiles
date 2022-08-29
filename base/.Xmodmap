@@ -3,7 +3,6 @@ clear mod4
 
 keycode 66 = Hyper_L
 add mod4 = Hyper_L
-
 ! clear lock
 ! keycode 133 = Hyper_R
 ! add mod3 = Hyper_R

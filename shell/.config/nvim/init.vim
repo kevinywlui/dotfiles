@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'vim-scripts/google.vim'
 
 Plug 'wakatime/vim-wakatime'
@@ -78,9 +79,9 @@ set autoindent
 set expandtab
 
 " Tabs consistent with Python specs
-set softtabstop=4
-set shiftwidth=4
-set textwidth=79
+" set softtabstop=4
+" set shiftwidth=4
+" set textwidth=79
 
 " no redraws while performing macros
 set lazyredraw

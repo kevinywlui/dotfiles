@@ -19,7 +19,7 @@ floating_modifier $mod
 
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
-bindsym $mod+Shift+t exec /home/klui/bin/hotplug.sh
+bindsym $mod+Shift+t exec "grobi update"
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -112,7 +112,7 @@ bindsym $mod+r mode "resize"
 # keybinds for some frequent programs
 bindsym $mod+p exec "zathura"
 bindsym $mod+e exec "evince"
-bindsym $mod+g exec "chromium"
+bindsym $mod+g exec "google-chrome-stable"
 bindsym $mod+w exec "qutebrowser"
 bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+z exec "Zulip-3.0.0-x86_64.AppImage"
@@ -125,7 +125,7 @@ bindsym $mod+minus scratchpad show
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-exec --no-startup-id xsetroot -solid "#163d49"
+exec --no-startup-id xsetroot -solid "#D35400"
 
 
 default_border pixel 4
