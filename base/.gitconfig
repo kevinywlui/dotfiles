@@ -1,0 +1,8 @@
+[user]
+	email = kevinywlui@gmail.com
+	name = Kevin Lui
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status

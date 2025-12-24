@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+BAT="BAT1"
+BAT_PATH="/sys/class/power_supply/$BAT"
+
+if [ ! -d "$BAT_PATH" ]; then
+    exit 0
+fi
+
+STATUS=$(cat "$BAT_PATH/status")
+CAPACITY=$(cat "$BAT_PATH/capacity")
+
+# Calculate time remaining
+TIME_INFO=""
+CURRENT=$(cat "$BAT_PATH/current_now")
+
+if [ "$CURRENT" -gt 0 ]; then
+    if [ "$STATUS" = "Discharging" ]; then
+        CHARGE_NOW=$(cat "$BAT_PATH/charge_now")
+        REMAINING_MINUTES=$(( CHARGE_NOW * 60 / CURRENT ))
+        TIME_INFO=" ($(printf "%02d:%02d" $((REMAINING_MINUTES / 60)) $((REMAINING_MINUTES % 60))))"
+    elif [ "$STATUS" = "Charging" ]; then
+        CHARGE_NOW=$(cat "$BAT_PATH/charge_now")
+        CHARGE_FULL=$(cat "$BAT_PATH/charge_full")
+        REMAINING_MINUTES=$(( (CHARGE_FULL - CHARGE_NOW) * 60 / CURRENT ))
+        TIME_INFO=" ($(printf "%02d:%02d" $((REMAINING_MINUTES / 60)) $((REMAINING_MINUTES % 60))))"
+    fi
+fi
+
+FULL_TEXT="${CAPACITY}%"
+
+if [ "$STATUS" = "Discharging" ]; then
+    FULL_TEXT="${FULL_TEXT} DIS"
+elif [ "$STATUS" = "Charging" ]; then
+    FULL_TEXT="${FULL_TEXT} CHR"
+elif [ "$STATUS" = "Full" ]; then
+    FULL_TEXT="${FULL_TEXT} FULL"
+fi
+
+FULL_TEXT="${FULL_TEXT}${TIME_INFO}"
+
+echo "$FULL_TEXT"
+echo "$FULL_TEXT"
+
+if [ "$STATUS" = "Discharging" ]; then
+    if [ "$CAPACITY" -lt 20 ]; then
+        echo "#FF0000"
+    elif [ "$CAPACITY" -lt 40 ]; then
+        echo "#FFAE00"
+    elif [ "$CAPACITY" -lt 60 ]; then
+        echo "#FFF600"
+    elif [ "$CAPACITY" -lt 85 ]; then
+        echo "#A8FF00"
+    fi
+    
+    if [ "$CAPACITY" -lt 5 ]; then
+        exit 33
+    fi
+fi
+
+exit 0

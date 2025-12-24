@@ -1,0 +1,4 @@
+clear Lock 
+clear mod4
+keycode 66 = Hyper_R
+add mod4 = Hyper_R
