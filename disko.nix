@@ -19,9 +19,18 @@
             root = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "@" = {
+                    mountpoint = "/";
+                    mountOptions = [ "compress=zstd:1" "noatime" ];
+                  };
+                  "@home" = {
+                    mountpoint = "/home";
+                    mountOptions = [ "compress=zstd:1" "noatime" ];
+                  };
+                };
               };
             };
           };
