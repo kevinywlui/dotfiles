@@ -35,6 +35,7 @@
     unzip
     stow
     gnumake
+    zplug
   ];
 
   services.xserver = {
