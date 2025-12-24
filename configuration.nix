@@ -2,6 +2,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "nixos-test-vm";
   
   # Enable a basic environment
@@ -10,7 +12,35 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’
     initialPassword = "nixos";
+    shell = pkgs.zsh;
   };
 
-  system.stateVersion = "unstable"; 
+  programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    vim
+    git
+    jj
+    btrfs-progs
+    kitty
+    rofi
+    google-chrome
+    dunst
+    ripgrep
+    fd
+    fzf
+    htop
+    wget
+    unzip
+    stow
+    gnumake
+  ];
+
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+  };
+
+  system.stateVersion = "24.11"; 
 }
