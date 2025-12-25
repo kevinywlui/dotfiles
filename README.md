@@ -10,8 +10,22 @@ This repository contains the NixOS configuration for a Framework 13 Laptop (Inte
 
 ## Installation Instructions
 
-### 1. Boot from NixOS Live USB
-Boot the laptop using a recent NixOS Graphical Live USB. Connect to the internet (using `iwctl` or the GUI).
+### 1. Boot the Installer
+Choose one of the two methods below to get into the NixOS Live environment.
+
+#### Method A: Using a USB Drive (Standard)
+Boot the laptop using a recent NixOS Graphical Live USB. Connect to the internet.
+
+#### Method B: No USB Drive (Kexec from existing Linux)
+If you already have a Linux distribution installed, you can boot the NixOS installer directly into RAM:
+
+```bash
+# Download and extract the kexec installer
+curl -L https://github.com/nix-community/nixos-images/releases/download/nixos-24.11/nixos-kexec-installer-x86_64-linux.tar.gz | tar -xzf -
+
+# Switch to the NixOS installer (will kill your current session)
+sudo ./netboot.sh
+```
 
 ### 2. Partition and Format (Disko)
 **WARNING: This will wipe `/dev/nvme0n1`.**
