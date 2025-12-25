@@ -12,12 +12,13 @@ in
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "nixos-test-vm";
+  networking.wireless.iwd.enable = true;
   
   # Enable a basic environment
   services.getty.autologinUser = "nixos";
   users.users.nixos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’
+    extraGroups = [ "wheel" "video" ]; # Enable ‘sudo’ and brightness control
     initialPassword = "nixos";
     shell = pkgs.zsh;
   };
@@ -44,7 +45,14 @@ in
     stow
     gnumake
     zplug
+    ponymix
+    xbindkeys
+    xorg.xmodmap
+    xorg.xinit
+    acpi
   ];
+
+  programs.light.enable = true;
 
   services.xserver = {
     enable = true;
