@@ -36,22 +36,22 @@
 
 
 #Volume Mute
-"ponymix toggle --output; pkill -SIGRTMIN+10 i3blocks"
+"pamixer -t; pkill -SIGRTMIN+10 i3blocks"
     m:0x10 + c:121
     Mod2 + XF86AudioMute 
 
 #Volume Down
-"ponymix decrease 5 --output; pkill -SIGRTMIN+10 i3blocks"
+"pamixer -d 5; pkill -SIGRTMIN+10 i3blocks"
     m:0x10 + c:122
     Mod2 + XF86AudioLowerVolume 
 
 #Volume Up
-"ponymix increase 5 --output; pkill -SIGRTMIN+10 i3blocks"
+"pamixer -i 5; pkill -SIGRTMIN+10 i3blocks"
     m:0x10 + c:123
     Mod2 + XF86AudioRaiseVolume 
 
 #Toggle Mic
-"ponymix toggle --input; pkill -SIGRTMIN+10 i3blocks"
+"pamixer --default-source -t; pkill -SIGRTMIN+10 i3blocks"
     m:0x0 + c:198
     XF86AudioMicMute 
 
