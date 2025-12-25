@@ -32,11 +32,17 @@ in
   home.packages = [
     (pkgs.writeShellScriptBin "setup-dotfiles" ''
       mkdir -p ~/Code
+
+      if [ "$1" == "--force" ]; then
+        echo "Force flag detected. Removing existing dotfiles..."
+        rm -rf ~/Code/dotfiles
+      fi
+
       if [ -d ~/Code/dotfiles ]; then
-        echo "Dotfiles already exist at ~/Code/dotfiles"
+        echo "Dotfiles already exist at ~/Code/dotfiles. Use --force to overwrite."
       else
         echo "Cloning dotfiles..."
-        ${pkgs.git}/bin/git clone git@github.com:kevinywlui/dotfiles.git ~/Code/dotfiles
+        ${pkgs.git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ~/Code/dotfiles
       fi
     '')
   ];
