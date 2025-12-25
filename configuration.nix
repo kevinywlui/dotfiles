@@ -1,10 +1,5 @@
-{ pkgs, inputs, ... }: 
-let
-  unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
-    config.allowUnfree = true;
-  };
-in
+{ pkgs, ... }: 
+
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,11 +19,16 @@ in
   };
 
   programs.zsh.enable = true;
+  programs.git.enable = true;
+  programs.htop.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    package = pkgs.unstable.neovim;
+  };
 
   environment.systemPackages = with pkgs; [
-    unstable.neovim
     vim
-    git
     jj
     btrfs-progs
     kitty
@@ -39,7 +39,6 @@ in
     ripgrep
     fd
     fzf
-    htop
     wget
     unzip
     stow

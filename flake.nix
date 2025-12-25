@@ -19,6 +19,16 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.overlays = [
+            (final: prev: {
+              unstable = import inputs.nixpkgs-unstable {
+                system = final.system;
+                config.allowUnfree = true;
+              };
+            })
+          ];
+        }
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.nixos = import ./home.nix;

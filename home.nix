@@ -1,31 +1,31 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   dotfilesPath = "${config.home.homeDirectory}/Code/dotfiles/base";
+  link = file: config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${file}";
 in
 {
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
   home.file = {
-    ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zshrc";
-    ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.zprofile";
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.gitconfig";
-    ".xmodmap".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xmodmap";
-    ".xinitrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xinitrc";
-    ".xbindkeysrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.xbindkeysrc";
-    ".i3blocks.conf".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.i3blocks.conf";
+    ".zshrc".source = link ".zshrc";
+    ".zprofile".source = link ".zprofile";
+    ".gitconfig".source = link ".gitconfig";
+    ".xmodmap".source = link ".xmodmap";
+    ".xinitrc".source = link ".xinitrc";
+    ".xbindkeysrc".source = link ".xbindkeysrc";
+    ".i3blocks.conf".source = link ".i3blocks.conf";
+    ".local/bin".source = link ".local/bin";
   };
 
   xdg.configFile = {
-    "i3".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/i3";
-    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/nvim";
-    "kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/kitty";
-    "dunst".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/dunst";
-    "redshift.conf".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.config/redshift.conf";
+    "i3".source = link ".config/i3";
+    "nvim".source = link ".config/nvim";
+    "kitty".source = link ".config/kitty";
+    "dunst".source = link ".config/dunst";
+    "redshift.conf".source = link ".config/redshift.conf";
   };
-
-  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.local/bin";
 
   programs.home-manager.enable = true;
 
