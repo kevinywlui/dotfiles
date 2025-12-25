@@ -16,6 +16,7 @@ in
     ".xinitrc".source = link ".xinitrc";
     ".xbindkeysrc".source = link ".xbindkeysrc";
     ".i3blocks.conf".source = link ".i3blocks.conf";
+    ".p10k.zsh".source = link ".p10k.zsh";
     ".local/bin".source = link ".local/bin";
   };
 
