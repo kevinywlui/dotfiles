@@ -68,6 +68,8 @@
     acpi
     grobi
     autorandr
+    arandr
+    pavucontrol
     telegram-desktop
     playerctl
     pulseaudio
