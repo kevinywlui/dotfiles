@@ -29,6 +29,18 @@ in
 
   programs.home-manager.enable = true;
 
+  home.packages = [
+    (pkgs.writeShellScriptBin "setup-dotfiles" ''
+      mkdir -p ~/Code
+      if [ -d ~/Code/dotfiles ]; then
+        echo "Dotfiles already exist at ~/Code/dotfiles"
+      else
+        echo "Cloning dotfiles..."
+        ${pkgs.git}/bin/git clone git@github.com:kevinywlui/dotfiles.git ~/Code/dotfiles
+      fi
+    '')
+  ];
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
