@@ -1,8 +1,10 @@
-.PHONY: install clean adopt
+.PHONY: install clean adopt zplug
 
-install:
-	@[ -d $(HOME)/.zplug ] || git clone https://github.com/zplug/zplug $(HOME)/.zplug
+install: zplug
 	stow -t $(HOME) base
+
+zplug:
+	@[ -d $(HOME)/.zplug ] || git clone https://github.com/zplug/zplug $(HOME)/.zplug
 
 clean:
 	stow -D -t $(HOME) base
