@@ -1,4 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: 
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
+{
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -18,7 +25,7 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
+    unstable.neovim
     vim
     git
     jj
