@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     
@@ -9,11 +10,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, nixos-hardware, ... }@inputs: {
     nixosConfigurations.my-test-vm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
+        nixos-hardware.nixosModules.framework-13-inch-intel-core-ultra-series1
         disko.nixosModules.disko
         ./disko.nix
         ./configuration.nix

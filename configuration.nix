@@ -9,6 +9,9 @@
   networking.hostName = "nixos-test-vm";
   networking.wireless.iwd.enable = true;
   
+  services.fwupd.enable = true;
+  services.fprintd.enable = true;
+
   # Enable a basic environment
   services.getty.autologinUser = "nixos";
   users.users.nixos = {
