@@ -34,6 +34,7 @@ in
     rofi
     google-chrome
     dunst
+    i3blocks
     ripgrep
     fd
     fzf
