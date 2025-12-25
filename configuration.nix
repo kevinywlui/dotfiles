@@ -24,7 +24,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.unstable.neovim;
+    package = pkgs.unstable.neovim-unwrapped;
   };
 
   environment.systemPackages = with pkgs; [
