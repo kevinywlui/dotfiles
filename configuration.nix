@@ -13,11 +13,11 @@
   services.fprintd.enable = true;
 
   # Enable a basic environment
-  services.getty.autologinUser = "nixos";
-  users.users.nixos = {
+  services.getty.autologinUser = "klui";
+  users.users.klui = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" ]; # Enable ‘sudo’ and brightness control
-    initialPassword = "nixos";
+    initialPassword = "klui";
     shell = pkgs.zsh;
   };
 

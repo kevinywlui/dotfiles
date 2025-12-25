@@ -5,8 +5,8 @@ let
   link = file: config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${file}";
 in
 {
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home.username = "klui";
+  home.homeDirectory = "/home/klui";
 
   home.file = {
     ".zshrc".source = link ".zshrc";
