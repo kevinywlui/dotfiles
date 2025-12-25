@@ -45,7 +45,6 @@ in
     stow
     gnumake
     zplug
-    ponymix
     xbindkeys
     xorg.xmodmap
     xorg.xinit
