@@ -36,6 +36,7 @@
 
   programs.zsh.enable = true;
   programs.git.enable = true;
+  programs.steam.enable = true;
   programs.htop.enable = true;
   programs.neovim = {
     enable = true;
