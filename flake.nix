@@ -15,7 +15,7 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        nixos-hardware.nixosModules.framework-13-inch-intel-core-ultra-series1
+        nixos-hardware.nixosModules.framework-intel-core-ultra-series1
         disko.nixosModules.disko
         ./disko.nix
         ./configuration.nix
