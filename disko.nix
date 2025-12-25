@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/vda"; # Standard for QEMU/KVM VMs
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";

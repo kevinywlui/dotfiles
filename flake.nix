@@ -11,13 +11,14 @@
   };
 
   outputs = { self, nixpkgs, disko, home-manager, nixos-hardware, ... }@inputs: {
-    nixosConfigurations.my-test-vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.fw13 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         nixos-hardware.nixosModules.framework-intel-core-ultra-series1
         disko.nixosModules.disko
         ./disko.nix
+        ./hardware-configuration.nix
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {

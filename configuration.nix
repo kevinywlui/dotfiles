@@ -6,7 +6,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "nixos-test-vm";
+  networking.hostName = "fw13";
   networking.wireless.iwd.enable = true;
   
   services.fwupd.enable = true;
