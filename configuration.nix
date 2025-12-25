@@ -6,11 +6,24 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "fw13";
+  networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
   networking.wireless.iwd.enable = true;
   
   services.fwupd.enable = true;
   services.fprintd.enable = true;
+
+  # Enable sound with pipewire.
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Enable a basic environment
   services.getty.autologinUser = "klui";
@@ -59,6 +72,12 @@
   services.xserver = {
     enable = true;
     windowManager.i3.enable = true;
+  };
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
   };
 
   system.stateVersion = "24.11"; 
