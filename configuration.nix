@@ -66,6 +66,15 @@
     xorg.xmodmap
     xorg.xinit
     acpi
+    grobi
+    autorandr
+    telegram-desktop
+    playerctl
+    pulseaudio
+  ];
+
+  fonts.packages = with pkgs; [
+    nerdfonts
   ];
 
   programs.light.enable = true;
