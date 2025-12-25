@@ -29,5 +29,10 @@ in
 
   programs.home-manager.enable = true;
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.stateVersion = "24.11"; 
 }
