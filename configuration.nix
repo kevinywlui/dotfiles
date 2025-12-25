@@ -52,6 +52,7 @@
     google-chrome
     dunst
     i3blocks
+    iwgtk
     ripgrep
     fd
     fzf
