@@ -59,6 +59,13 @@ Reboot into your new system. Once logged in, bootstrap your dotfiles:
 setup-dotfiles
 ```
 
+## Testing in a VM
+You can test the configuration (packages, shell, home-manager) in a virtual machine without affecting your host system:
+
+```bash
+nix run --extra-experimental-features "nix-command flakes" .
+```
+
 ## Maintenance
 
 ### Rebuilding the System

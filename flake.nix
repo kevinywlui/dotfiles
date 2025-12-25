@@ -38,5 +38,39 @@
         }
       ];
     };
+
+    nixosConfigurations.my-test-vm = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          nixpkgs.overlays = [
+            (final: prev: {
+              unstable = import inputs.nixpkgs-unstable {
+                system = final.system;
+                config.allowUnfree = true;
+              };
+            })
+          ];
+        }
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.klui = import ./home.nix;
+        }
+        ({ pkgs, ... }: {
+          # Minimal configuration for VM
+          boot.loader.systemd-boot.enable = pkgs.lib.mkForce false; # QEMU handles booting usually
+          fileSystems."/" = { device = "/dev/vda1"; fsType = "ext4"; };
+        })
+      ];
+    };
+
+    apps.x86_64-linux.default = {
+      type = "app";
+      program = "${self.nixosConfigurations.my-test-vm.config.system.build.vm}/bin/run-fw13-vm";
+    };
   };
 }
