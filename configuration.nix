@@ -63,7 +63,6 @@
     gnumake
     nodejs_22
     yarn
-    gemini-cli-bin
     zplug
     pamixer
     xbindkeys
