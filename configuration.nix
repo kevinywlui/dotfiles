@@ -29,7 +29,7 @@
   services.getty.autologinUser = "klui";
   users.users.klui = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ]; # Enable ‘sudo’ and brightness control
+    extraGroups = [ "syncthing" "wheel" "video" ]; # Enable ‘sudo’ and brightness control
     initialPassword = "klui";
     shell = pkgs.zsh;
   };
@@ -49,6 +49,7 @@
     arandr
     autorandr
     btrfs-progs
+    calibre
     clang
     dunst
     fd
@@ -102,6 +103,22 @@
     enable = true;
     openDefaultPorts = true; # Open ports in the firewall for Syncthing. (NOTE: this will not open syncthing gui port)
   };
+
+  services.tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 20;
+      };
+};
 
   system.stateVersion = "24.11"; 
 }
