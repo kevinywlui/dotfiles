@@ -45,6 +45,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    clang
     vim
     jj
     btrfs-progs
