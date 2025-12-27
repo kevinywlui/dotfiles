@@ -60,6 +60,7 @@
     iwgtk
     jj
     kitty
+    nodejs_latest
     pamixer
     pavucontrol
     playerctl
@@ -68,6 +69,7 @@
     rofi
     stow
     telegram-desktop
+    unstable.gemini-cli-bin
     unzip
     vim
     wget
