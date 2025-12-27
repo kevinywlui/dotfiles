@@ -12,6 +12,7 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
   networking.wireless.iwd.enable = true;
+  time.timeZone = "America/Los_Angeles";
   
   services.fwupd.enable = true;
   services.fprintd.enable = true;
