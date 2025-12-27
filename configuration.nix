@@ -69,6 +69,7 @@
     rofi
     stow
     telegram-desktop
+    tree-sitter
     unstable.gemini-cli-bin
     unzip
     vim
