@@ -45,38 +45,38 @@
   };
 
   environment.systemPackages = with pkgs; [
-    clang
-    vim
-    jj
+    acpi
+    arandr
+    autorandr
     btrfs-progs
-    kitty
-    rofi
-    google-chrome
+    clang
     dunst
-    i3blocks
-    iwgtk
-    ripgrep
     fd
     fzf
-    wget
-    unzip
-    stow
     gnumake
-    nodejs_22
-    yarn
-    zplug
-    pamixer
-    xbindkeys
-    xorg.xmodmap
-    xorg.xinit
-    acpi
+    google-chrome
     grobi
-    autorandr
-    arandr
+    i3blocks
+    iwgtk
+    jj
+    kitty
+    nodejs_22
+    pamixer
     pavucontrol
-    telegram-desktop
     playerctl
     pulseaudio
+    ripgrep
+    rofi
+    stow
+    telegram-desktop
+    unzip
+    vim
+    wget
+    xbindkeys
+    xorg.xinit
+    xorg.xmodmap
+    yarn
+    zplug
   ];
 
   fonts.packages = with pkgs; [
