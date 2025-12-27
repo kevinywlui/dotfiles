@@ -60,7 +60,6 @@
     iwgtk
     jj
     kitty
-    nodejs_22
     pamixer
     pavucontrol
     playerctl
@@ -75,7 +74,6 @@
     xbindkeys
     xorg.xinit
     xorg.xmodmap
-    yarn
     zplug
   ];
 
