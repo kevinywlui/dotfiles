@@ -12,6 +12,7 @@ in
     ".zshrc".source = link ".zshrc";
     ".zprofile".source = link ".zprofile";
     ".gitconfig".source = link ".gitconfig";
+    ".xresources".source = link ".xresources";
     ".xmodmap".source = link ".xmodmap";
     ".xinitrc".source = link ".xinitrc";
     ".xbindkeysrc".source = link ".xbindkeysrc";
