@@ -24,6 +24,7 @@
   
   services.fwupd.enable = true;
   services.fprintd.enable = true;
+  services.logind.lidSwitch = "suspend";
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
