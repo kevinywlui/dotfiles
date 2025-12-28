@@ -1,9 +1,16 @@
-{ pkgs, ... }: 
+{ pkgs, inputs, ... }: 
 
 {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Add git commit hash and timestamp to bootloader entry
+  system.nixos.label = let
+    rev = inputs.self.rev or inputs.self.dirtyRev or "dirty";
+    date = inputs.self.lastModifiedDate or "19700101000000";
+    formattedDate = "${builtins.substring 0 4 date}_${builtins.substring 4 2 date}_${builtins.substring 6 2 date}-${builtins.substring 8 2 date}:${builtins.substring 10 2 date}";
+  in "fw13-${formattedDate}-${builtins.substring 0 7 rev}";
 
   nixpkgs.config.allowUnfree = true;
 
