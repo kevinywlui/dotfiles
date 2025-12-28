@@ -89,6 +89,7 @@
     xorg.xinit
     xorg.xmodmap
     zplug
+    zoxide
   ];
 
   fonts.packages = with pkgs; [
