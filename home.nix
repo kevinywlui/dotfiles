@@ -35,6 +35,8 @@ in
   home.packages = [
     pkgs.xss-lock
     pkgs.xsecurelock
+    pkgs.fzf
+    pkgs.zoxide
     (pkgs.writeShellScriptBin "setup-dotfiles" ''
       mkdir -p ~/Code
 
@@ -51,11 +53,6 @@ in
       fi
     '')
   ];
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
   home.stateVersion = "24.11"; 
 }

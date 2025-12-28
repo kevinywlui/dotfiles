@@ -64,7 +64,6 @@
     clang
     dunst
     fd
-    fzf
     gnumake
     google-chrome
     grobi
@@ -90,7 +89,6 @@
     xorg.xinit
     xorg.xmodmap
     zplug
-    zoxide
   ];
 
   fonts.packages = with pkgs; [
