@@ -1,4 +1,3 @@
-xmodmap ~/.xmodmap
-xrdb ~/.xresources
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 exec i3
