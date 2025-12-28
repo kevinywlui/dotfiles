@@ -33,6 +33,8 @@ in
   programs.home-manager.enable = true;
 
   home.packages = [
+    pkgs.xss-lock
+    pkgs.xsecurelock
     (pkgs.writeShellScriptBin "setup-dotfiles" ''
       mkdir -p ~/Code
 
