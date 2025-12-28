@@ -51,7 +51,8 @@
         ./configuration.nix
         ({ pkgs, ... }: {
           # Minimal configuration for VM
-          boot.loader.systemd-boot.enable = pkgs.lib.mkForce false; # QEMU handles booting usually
+          boot.loader.systemd-boot.enable = true;
+          boot.loader.grub.enable = false;
           fileSystems."/" = { device = "/dev/vda1"; fsType = "ext4"; };
         })
       ] ++ commonModules;

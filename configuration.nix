@@ -26,6 +26,9 @@
   services.fprintd.enable = true;
   services.logind.lidSwitch = "suspend";
 
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.sudo.fprintAuth = true;
+
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   hardware.firmware = [ pkgs.linux-firmware ];
