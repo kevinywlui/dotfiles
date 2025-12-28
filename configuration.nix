@@ -1,6 +1,7 @@
 { pkgs, ... }: 
 
 {
+  boot.initrd.availableKernelModules = [ "i915" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -19,6 +20,7 @@
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
+  hardware.firmware = [ pkgs.linux-firmware ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
