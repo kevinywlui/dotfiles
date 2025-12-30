@@ -81,6 +81,7 @@
     pulseaudio
     ripgrep
     rofi
+    snixembed
     stow
     telegram-desktop
     tree-sitter
@@ -102,6 +103,7 @@
 
   services.xserver = {
     enable = true;
+    displayManager.lightdm.greeters.gtk.cursorTheme.size = 48;
     windowManager.i3.enable = true;
   };
 

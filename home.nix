@@ -28,6 +28,7 @@ in
     "kitty".source = link ".config/kitty";
     "dunst".source = link ".config/dunst";
     "redshift.conf".source = link ".config/redshift.conf";
+    "gtk-3.0".source = link ".config/gtk-3.0";
   };
 
   programs.home-manager.enable = true;
