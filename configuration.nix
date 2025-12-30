@@ -103,7 +103,10 @@
 
   services.xserver = {
     enable = true;
-    displayManager.lightdm.greeters.gtk.cursorTheme.size = 48;
+    displayManager.lightdm.greeters.gtk = {
+      cursorTheme.size = 48;
+      extraConfig = "xft-dpi = 192";
+    };
     windowManager.i3.enable = true;
   };
 
