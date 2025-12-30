@@ -18,8 +18,6 @@
 
   networking.hostName = "fw13";
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-  networking.wireless.iwd.enable = true;
   time.timeZone = "America/Los_Angeles";
   
   services.fwupd.enable = true;
@@ -71,7 +69,7 @@
     google-chrome
     grobi
     i3blocks
-    iwgtk
+    networkmanagerapplet
     jj
     kitty
     nodejs_latest
@@ -81,7 +79,6 @@
     pulseaudio
     ripgrep
     rofi
-    snixembed
     stow
     telegram-desktop
     tree-sitter
