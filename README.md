@@ -5,6 +5,7 @@ My configuration files managed by [GNU Stow](https://www.gnu.org/software/stow/)
 ## Structure
 
 *   **base**: Contains all configurations (Git, X11, Shell, i3, etc.).
+*   **nix**: Contains the NixOS system configuration.
 
 ## Installation
 

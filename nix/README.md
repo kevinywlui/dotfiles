@@ -33,7 +33,7 @@ Clone this repository and run the Disko script to set up the encrypted partition
 
 ```bash
 sudo nix --extra-experimental-features "nix-command flakes" \
-  run github:nix-community/disko -- --mode zap_create_mount ./disko.nix
+  run github:nix-community/disko -- --mode zap_create_mount ./nix/disko.nix
 ```
 *Note: You will be prompted to set a LUKS passphrase.*
 
@@ -42,14 +42,14 @@ Generate the hardware-specific file to capture your laptop's unique device IDs:
 
 ```bash
 nixos-generate-config --no-fstab --root /mnt
-cp /mnt/etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
+cp /mnt/etc/nixos/hardware-configuration.nix ./nix/hardware-configuration.nix
 ```
 
 ### 4. Perform Installation
 Install the system using the `fw13` flake configuration:
 
 ```bash
-sudo nixos-install --flake .#fw13
+sudo nixos-install --flake ./nix#fw13
 ```
 
 ### 5. Finalize
@@ -71,12 +71,14 @@ nix run --extra-experimental-features "nix-command flakes" .
 ### Rebuilding the System
 To apply changes to your configuration:
 ```bash
+cd nix
 sudo nixos-rebuild switch --flake .
 ```
 
 ### Updating Packages
 To update the flake inputs (like Neovim unstable):
 ```bash
+cd nix
 nix flake update
 sudo nixos-rebuild switch --flake .
 ```
