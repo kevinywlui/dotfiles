@@ -52,7 +52,7 @@ if [ "$STATUS" = "Discharging" ]; then
     elif [ "$CAPACITY" -lt 85 ]; then
         echo "#A8FF00"
     fi
-    
+
     if [ "$CAPACITY" -lt 5 ]; then
         exit 33
     fi

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: 
+{ pkgs, inputs, ... }:
 
 {
   boot.initrd.availableKernelModules = [ "i915" ];
@@ -19,7 +19,7 @@
   networking.hostName = "fw13";
   networking.networkmanager.enable = true;
   time.timeZone = "America/Los_Angeles";
-  
+
   services.fwupd.enable = true;
   services.fprintd.enable = true;
   services.logind.lidSwitch = "suspend";
@@ -132,7 +132,7 @@
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 20;
       };
-};
+  };
 
-  system.stateVersion = "24.11"; 
+  system.stateVersion = "24.11";
 }

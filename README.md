@@ -14,7 +14,7 @@ My configuration files managed by [GNU Stow](https://www.gnu.org/software/stow/)
         ```bash
         # Arch Linux
         sudo pacman -S stow fzf
-        
+
         # Debian/Ubuntu
         sudo apt install stow fzf
         ```
