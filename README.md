@@ -17,9 +17,9 @@ This repository uses a "Soak Test" pattern to ensure system stability:
 2.  **Automatic Tagging**: A systemd service (`mark-stable`) monitors the system. If the system stays up for 10 minutes and passes a health check, the service:
     *   Pins the current system locally at `/nix/var/nix/profiles/stable`.
     *   Creates/Updates a persistent **"NixOS (Stable)"** entry in the boot menu.
-    *   Creates a unique **`stable-YYYYMMDD-HHMM`** tag and pushes it to origin.
+    *   Creates a unique **`stable-YYYYMMDD-HHMM-rev`** tag (matching the bootloader entry's timestamp and revision) and pushes it to origin.
 
-To recover or deploy a known-good version, use the latest `stable-*` tag or select the "Stable" entry from the boot menu.
+To recover or deploy a known-good version, use the latest `stable-*` tag or select the "Stable" entry from the boot menu. The tags are based on the commit's last-modified date, making them easy to correlate with your Git history.
 
 ## Installation
 

@@ -36,8 +36,10 @@ let
       if [ "$BUILD_REV" = "dirty" ]; then
         echo "System was built from a dirty tree. Skipping remote promotion."
       else
-        TIMESTAMP=$(date +%Y%m%d-%H%M)
-        TAG_NAME="stable-$TIMESTAMP"
+        # Use the system label (e.g. fw13-20251230-1430-f7a7541) as the basis for the tag
+        # We strip the hostname prefix to get a clean 'stable-YYYYMMDD-HHMM-rev' tag
+        LABEL="${config.system.nixos.label}"
+        TAG_NAME="stable-''${LABEL#*-}"
         echo "Promoting build revision $BUILD_REV to main and tagging as $TAG_NAME..."
 
         # Run as klui to use their SSH keys and git config.
