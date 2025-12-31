@@ -6,11 +6,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Add git commit hash and timestamp to bootloader entry
-  system.nixos.label = let
-    rev = inputs.self.rev or inputs.self.dirtyRev or "dirty";
-    date = inputs.self.lastModifiedDate or "19700101000000";
-    formattedDate = "${builtins.substring 0 4 date}_${builtins.substring 4 2 date}_${builtins.substring 6 2 date}-${builtins.substring 8 2 date}:${builtins.substring 10 2 date}";
-  in "fw13-${formattedDate}-${builtins.substring 0 7 rev}";
+  system.nixos.label =
+    let
+      rev = inputs.self.rev or inputs.self.dirtyRev or "dirty";
+      date = inputs.self.lastModifiedDate or "19700101000000";
+      formattedDate = "${builtins.substring 0 4 date}_${builtins.substring 4 2 date}_${builtins.substring 6 2 date}-${builtins.substring 8 2 date}:${builtins.substring 10 2 date}";
+    in
+    "fw13-${formattedDate}-${builtins.substring 0 7 rev}";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -57,39 +59,41 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # System / Utils
     acpi
     arandr
     autorandr
     btrfs-progs
-    calibre
-    clang
     dunst
-    fd
     gnumake
-    google-chrome
     grobi
     i3blocks
     networkmanagerapplet
-    jj
-    kitty
-    nodejs_latest
+    nixpkgs-fmt
     pamixer
-    pavucontrol
-    playerctl
-    pulseaudio
-    ripgrep
+    pre-commit
     rofi
+    shfmt
     stow
-    telegram-desktop
-    tree-sitter
-    unstable.gemini-cli-bin
     unzip
-    vim
     wget
     xbindkeys
     xorg.xinit
     xorg.xmodmap
     zplug
+
+    # Development
+    clang
+    fd
+    gitleaks
+    jj
+    nodejs_latest
+    ripgrep
+    shellcheck
+    stylua
+    tree-sitter
+    unstable.gemini-cli-bin
+    vim
   ];
 
   fonts.packages = with pkgs; [
@@ -119,19 +123,19 @@
   };
 
   services.tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 20;
-      };
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+    };
   };
 
   system.stateVersion = "24.11";

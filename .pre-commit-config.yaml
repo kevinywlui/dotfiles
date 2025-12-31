@@ -1,0 +1,53 @@
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks
+        entry: gitleaks detect --redact --verbose --no-git
+        language: system
+        pass_filenames: false
+
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        language: system
+        types: [shell]
+        exclude: |
+          (?x)^(
+            base/\.zshrc|
+            base/\.zprofile|
+            base/\.p10k\.zsh|
+            .*\.zsh
+          )$
+
+      - id: shfmt
+        name: shfmt
+        entry: shfmt -l -w
+        language: system
+        types: [shell]
+        exclude: |
+          (?x)^(
+            base/\.zshrc|
+            base/\.zprofile|
+            base/\.p10k\.zsh|
+            .*\.zsh
+          )$
+
+      - id: nixpkgs-fmt
+        name: nixpkgs-fmt
+        entry: nixpkgs-fmt
+        language: system
+        types: [nix]
+
+      - id: stylua
+        name: stylua
+        entry: stylua
+        language: system
+        types: [lua]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
