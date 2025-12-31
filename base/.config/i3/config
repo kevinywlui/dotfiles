@@ -28,7 +28,6 @@ bindsym $mod+q kill
 
 # use rofi
 bindsym $mod+d exec rofi -show drun -lines 10 -matching fuzzy -color-enabled -show-icons -dpi 1
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
 
 # screenshots
 bindsym Print exec flameshot gui

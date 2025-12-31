@@ -76,7 +76,6 @@
     pavucontrol
     pre-commit
     rofi
-    rofi-calc
     shfmt
     stow
     udiskie
