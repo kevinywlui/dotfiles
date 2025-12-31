@@ -18,22 +18,7 @@
         nixos-hardware.nixosModules.framework-intel-core-ultra-series1
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
-        ./disko.nix
-        ./hardware-configuration.nix
-        ./configuration.nix
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              unstable = import inputs.nixpkgs-unstable {
-                system = final.system;
-                config.allowUnfree = true;
-              };
-            })
-          ];
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.klui = import ./home.nix;
-        }
+        ./hosts/fw13/default.nix
       ];
     };
   };

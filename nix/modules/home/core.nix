@@ -12,30 +12,17 @@ in
     ".zshrc".source = link ".zshrc";
     ".zprofile".source = link ".zprofile";
     ".gitconfig".source = link ".gitconfig";
-    ".xresources".source = link ".xresources";
-    ".xmodmap".source = link ".xmodmap";
-    ".xinitrc".source = link ".xinitrc";
-    ".xbindkeysrc".source = link ".xbindkeysrc";
-    ".xprofile".source = link ".xprofile";
-    ".i3blocks.conf".source = link ".i3blocks.conf";
     ".p10k.zsh".source = link ".p10k.zsh";
     ".local/bin".source = link ".local/bin";
   };
 
   xdg.configFile = {
-    "i3".source = link ".config/i3";
     "nvim".source = link ".config/nvim";
-    "kitty".source = link ".config/kitty";
-    "dunst".source = link ".config/dunst";
-    "redshift.conf".source = link ".config/redshift.conf";
-    "gtk-3.0".source = link ".config/gtk-3.0";
   };
 
   programs.home-manager.enable = true;
 
   home.packages = [
-    pkgs.xss-lock
-    pkgs.xsecurelock
     pkgs.fzf
     pkgs.zoxide
     (pkgs.writeShellScriptBin "setup-dotfiles" ''
