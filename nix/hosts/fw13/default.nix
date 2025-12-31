@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, dotfilesPath, ... }:
 
 {
   imports = [
@@ -26,6 +26,7 @@
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
 
+  home-manager.extraSpecialArgs = { inherit inputs dotfilesPath; };
   home-manager.users.klui = {
     imports = [
       ../../modules/home/core.nix

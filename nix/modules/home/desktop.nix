@@ -1,8 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, dotfilesPath, ... }:
 
 let
-  dotfilesPath = "${config.home.homeDirectory}/Code/dotfiles/base";
-  link = file: config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${file}";
+  basePath = "${dotfilesPath}/base";
+  link = file: config.lib.file.mkOutOfStoreSymlink "${basePath}/${file}";
 in
 {
   home.file = {

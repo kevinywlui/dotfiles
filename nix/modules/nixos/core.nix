@@ -80,6 +80,7 @@ in
 
       devTools = with pkgs; [
         clang
+        gitleaks
         nodejs_latest
         shellcheck
         stylua
