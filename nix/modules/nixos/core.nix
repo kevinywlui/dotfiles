@@ -64,6 +64,7 @@
     # Development
     clang
     fd
+    fzf
     gitleaks
     jj
     nodejs_latest
@@ -73,6 +74,22 @@
     tree-sitter
     unstable.gemini-cli-bin
     vim
+    zoxide
+    (writeShellScriptBin "setup-dotfiles" ''
+      mkdir -p ~/Code
+
+      if [ "$1" == "--force" ]; then
+        echo "Force flag detected. Removing existing dotfiles..."
+        rm -rf ~/Code/dotfiles
+      fi
+
+      if [ -d ~/Code/dotfiles ]; then
+        echo "Dotfiles already exist at ~/Code/dotfiles. Use --force to overwrite."
+      else
+        echo "Cloning dotfiles..."
+        ${git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ~/Code/dotfiles
+      fi
+    '')
   ];
 
   environment.sessionVariables = {

@@ -49,6 +49,8 @@
     xbindkeys
     xorg.xinit
     xorg.xmodmap
+    xss-lock
+    xsecurelock
 
     # GUI Tools
     flameshot

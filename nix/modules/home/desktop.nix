@@ -23,7 +23,5 @@ in
   };
 
   home.packages = [
-    pkgs.xss-lock
-    pkgs.xsecurelock
   ];
 }

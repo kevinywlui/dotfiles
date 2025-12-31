@@ -23,23 +23,6 @@ in
   programs.home-manager.enable = true;
 
   home.packages = [
-    pkgs.fzf
-    pkgs.zoxide
-    (pkgs.writeShellScriptBin "setup-dotfiles" ''
-      mkdir -p ~/Code
-
-      if [ "$1" == "--force" ]; then
-        echo "Force flag detected. Removing existing dotfiles..."
-        rm -rf ~/Code/dotfiles
-      fi
-
-      if [ -d ~/Code/dotfiles ]; then
-        echo "Dotfiles already exist at ~/Code/dotfiles. Use --force to overwrite."
-      else
-        echo "Cloning dotfiles..."
-        ${pkgs.git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ~/Code/dotfiles
-      fi
-    '')
   ];
 
   home.stateVersion = "24.11";
