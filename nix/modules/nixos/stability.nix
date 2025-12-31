@@ -50,6 +50,8 @@ let
   };
 in
 {
+  environment.systemPackages = [ markStableScript ];
+
   systemd.timers.mark-stable = {
     description = "Timer for mark-stable service";
     wantedBy = [ "timers.target" ];
