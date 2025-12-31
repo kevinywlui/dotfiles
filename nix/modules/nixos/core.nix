@@ -59,7 +59,6 @@
     udiskie
     unzip
     wget
-    zplug
 
     # Development
     clang
@@ -88,6 +87,10 @@
       else
         echo "Cloning dotfiles..."
         ${git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ~/Code/dotfiles
+
+        echo "Installing dotfiles (stow + zplug)..."
+        cd ~/Code/dotfiles
+        ${gnumake}/bin/make install
       fi
     '')
   ];
