@@ -71,36 +71,42 @@ in
     package = pkgs.unstable.neovim-unwrapped;
   };
 
-  environment.systemPackages = with pkgs; [
-    # System / Utils
-    acpi
-    btrfs-progs
-    gnumake
-    grobi
-    nixpkgs-fmt
-    pre-commit
-    shfmt
-    stow
-    udiskie
-    unzip
-    wget
+  environment.systemPackages =
+    let
+      systemUtils = with pkgs; [
+        acpi
+        btrfs-progs
+        gnumake
+        grobi
+        nixpkgs-fmt
+        pre-commit
+        shfmt
+        stow
+        udiskie
+        unzip
+        wget
+      ];
 
-    # Development
-    clang
-    fd
-    fzf
-    gitleaks
-    jj
-    nodejs_latest
-    ripgrep
-    shellcheck
-    stylua
-    tree-sitter
-    unstable.gemini-cli-bin
-    vim
-    zoxide
-    setupDotfiles
-  ];
+      devTools = with pkgs; [
+        clang
+        nodejs_latest
+        shellcheck
+        stylua
+        tree-sitter
+      ];
+
+      cliTools = with pkgs; [
+        fd
+        fzf
+        jj
+        ripgrep
+        unstable.gemini-cli-bin
+        vim
+        zoxide
+        setupDotfiles
+      ];
+    in
+    systemUtils ++ devTools ++ cliTools;
 
   environment.sessionVariables = {
     FLAKE = "${dotfilesPath}/nix";
