@@ -3,7 +3,7 @@
 This document tracks specialized workflows and architectural choices to ensure future agents maintain the repository's integrity and cross-platform compatibility.
 
 ## 1. Verified Development Loop
-This project uses **`nh os build .`** as the primary verification tool during development and refactoring.
+This project uses **`nh os build`** as the primary verification tool during development and refactoring.
 
 - **Purpose:** To prevent silent regressions, such as the accidental removal of packages or services.
 - **Workflow:** `nh` automatically runs `nvd diff` between the currently active system and the newly built derivation. This provides a human-readable summary of every package addition, removal, or version change.
