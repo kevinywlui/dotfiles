@@ -1,22 +1,26 @@
 { pkgs, config, lib, ... }:
 
 {
+  systemd.timers.mark-stable = {
+    description = "Timer for mark-stable service";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "10m";
+      Unit = "mark-stable.service";
+    };
+  };
+
   systemd.services.mark-stable = {
-    description = "Mark current commit as stable after 10 minutes of uptime";
-    wantedBy = [ "multi-user.target" ];
+    description = "Mark current commit as stable";
     after = [ "network-online.target" ];
     requires = [ "network-online.target" ];
 
     serviceConfig = {
       Type = "oneshot";
       User = "klui";
-      RemainAfterExit = true;
     };
 
     script = ''
-      echo "Waiting 10 minutes before marking system as stable..."
-      sleep 600
-
       # 1. Local Pinning
       echo "Pinning local system profile..."
       sudo ${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/stable --set /run/current-system
