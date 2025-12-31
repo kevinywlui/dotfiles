@@ -11,6 +11,7 @@
   # Services - Desktop/Hardware
   services.fwupd.enable = true;
   services.fprintd.enable = true;
+  services.psd.enable = true;
   services.logind.lidSwitch = "suspend";
   security.pam.services.login.fprintAuth = true;
   security.pam.services.sudo.fprintAuth = true;
