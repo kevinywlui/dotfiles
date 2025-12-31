@@ -76,8 +76,10 @@
     pavucontrol
     pre-commit
     rofi
+    rofi-calc
     shfmt
     stow
+    udiskie
     unzip
     wget
     xbindkeys
@@ -88,6 +90,7 @@
     # Development
     clang
     fd
+    flameshot
     gitleaks
     jj
     nodejs_latest

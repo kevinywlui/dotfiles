@@ -28,6 +28,10 @@ bindsym $mod+q kill
 
 # use rofi
 bindsym $mod+d exec rofi -show drun -lines 10 -matching fuzzy -color-enabled -show-icons -dpi 1
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
+
+# screenshots
+bindsym Print exec flameshot gui
 
 bindsym $mod+a exec ~/.local/bin/set_monitor.sh
 
@@ -136,6 +140,7 @@ bindsym XF86MonBrightnessDown exec "light -U 2"
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id pasystray
+exec --no-startup-id udiskie
 exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#D35400"
 exec --no-startup-id xss-lock --transfer-sleep-lock -s ${XDG_SESSION_ID} -- xsecurelock
