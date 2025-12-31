@@ -30,7 +30,7 @@ bindsym $mod+q kill
 # use rofi
 bindsym $mod+d exec rofi -show drun -lines 10 -matching fuzzy -color-enabled -show-icons -dpi 1
 
-bindsym $mod+a exec autorandr
+bindsym $mod+a exec ~/.local/bin/set_monitor.sh
 
 # window management. use vim.
 bindsym $mod+h focus left
@@ -113,6 +113,7 @@ bindsym $mod+r mode "resize"
 # keybinds for some frequent programs
 bindsym $mod+g exec "google-chrome-stable"
 bindsym $mod+t exec "telegram-desktop"
+bindsym $mod+Shift+w exec xsecurelock
 
 # Pipewire-pulse
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle

@@ -1,6 +1,15 @@
-#! /usr/bin/bash
+#!/usr/bin/env bash
 
-ext_monitor_status=$(xrandr | grep ^DP-1 | cut -d ' ' -f 2)
-if [[ $ext_monitor_status == "connected" ]]; then
-        ~/.screenlayout/home_monitor.sh
+# Detect monitors
+INTERNAL="eDP-1"
+EXTERNAL="DP-2"
+
+# Check if external monitor is connected
+if xrandr | grep -q "$EXTERNAL connected"; then
+    # External monitor connected: scale it by 2x2 to match 192 DPI
+    xrandr --output "$INTERNAL" --auto --primary \
+           --output "$EXTERNAL" --auto --scale 2x2 --right-of "$INTERNAL"
+else
+    # Only internal monitor
+    xrandr --output "$INTERNAL" --auto --primary --output "$EXTERNAL" --off
 fi

@@ -1,2 +1,3 @@
 xmodmap ~/.xmodmap
 xrdb ~/.xresources
+~/.local/bin/set_monitor.sh
