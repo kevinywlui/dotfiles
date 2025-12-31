@@ -1,9 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  # Boot (Graphics)
-  boot.initrd.availableKernelModules = [ "i915" ];
-
   # Networking (Desktop/Laptop usually needs NM)
   networking.networkmanager.enable = true;
 
