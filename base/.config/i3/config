@@ -119,11 +119,11 @@ bindsym $mod+t exec "telegram-desktop"
 bindsym $mod+Shift+w exec xsecurelock
 
 # Pipewire-pulse
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec pamixer --toggle-mute
 bindsym XF86AudioMute --release exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5
 bindsym XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5
 bindsym XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
 
 # Media player controls
