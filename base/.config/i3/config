@@ -20,7 +20,6 @@ bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 bindsym $mod+Shift+t exec "grobi update"
 
-# start a terminal
 bindsym $mod+Return exec kitty
 
 # kill focused window

@@ -68,6 +68,7 @@
     gnumake
     grobi
     i3blocks
+    kitty
     networkmanagerapplet
     nixpkgs-fmt
     pamixer
