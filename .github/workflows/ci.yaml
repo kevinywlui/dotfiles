@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Install Dev Tools
+        run: |
+          nix profile install nixpkgs#pre-commit \
+                              nixpkgs#gitleaks \
+                              nixpkgs#shellcheck \
+                              nixpkgs#shfmt \
+                              nixpkgs#nixpkgs-fmt \
+                              nixpkgs#stylua
+
+      - name: Run Pre-Commit
+        # This runs all hooks defined in .pre-commit-config.yaml
+        # ensuring linting, formatting, and secret scanning pass.
+        run: pre-commit run --all-files --show-diff-on-failure
