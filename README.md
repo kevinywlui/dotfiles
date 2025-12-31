@@ -7,7 +7,19 @@ My personal configuration files managed by [GNU Stow](https://www.gnu.org/softwa
 *   **`base/`**: User-level configuration (Git, i3, Zsh, Neovim, etc.) managed via Stow.
 *   **`nix/`**: System-level configuration using a modular Flake structure.
     *   **`hosts/`**: Host-specific configurations (e.g., `fw13` for Framework 13).
-    *   **`modules/`**: Shared NixOS and Home Manager modules (`core`, `desktop`).
+    *   **`modules/`**: Shared NixOS and Home Manager modules (`core`, `desktop`, `stability`).
+
+## Stability Workflow
+
+This repository uses a "Soak Test" pattern to ensure system stability:
+
+1.  **`dev` Branch**: All active development happens here. Push your changes and `nixos-rebuild` from this branch.
+2.  **`main` Branch**: This is the **Golden** branch. It is only updated automatically.
+3.  **Automatic Promotion**: A systemd service (`mark-golden`) monitors the system. If the system stays up for 10 minutes, the service:
+    *   Pins the current system locally at `/nix/var/nix/profiles/golden`.
+    *   Force-pushes the current commit to the `main` branch.
+
+To recover or deploy a known-good version, use the `main` branch.
 
 ## Installation
 
