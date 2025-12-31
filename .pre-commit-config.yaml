@@ -45,6 +45,13 @@ repos:
         language: system
         types: [lua]
 
+      - id: nix-flake-check
+        name: nix flake check
+        entry: bash -c "cd nix && nix flake check --no-build"
+        language: system
+        files: ^nix/.*$
+        pass_filenames: false
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
