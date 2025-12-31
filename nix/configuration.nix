@@ -72,6 +72,7 @@
     networkmanagerapplet
     nixpkgs-fmt
     pamixer
+    pavucontrol
     pre-commit
     rofi
     shfmt
