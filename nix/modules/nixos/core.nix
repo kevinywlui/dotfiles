@@ -1,5 +1,30 @@
 { pkgs, inputs, dotfilesPath, ... }:
 
+let
+  setupDotfiles = pkgs.writeShellApplication {
+    name = "setup-dotfiles";
+    runtimeInputs = with pkgs; [ git gnumake coreutils ];
+    text = ''
+      mkdir -p ~/Code
+
+      if [ "''${1:-}" == "--force" ]; then
+        echo "Force flag detected. Removing existing dotfiles..."
+        rm -rf "${dotfilesPath}"
+      fi
+
+      if [ -d "${dotfilesPath}" ]; then
+        echo "Dotfiles already exist at ${dotfilesPath}. Use --force to overwrite."
+      else
+        echo "Cloning dotfiles..."
+        git clone https://github.com/kevinywlui/dotfiles.git "${dotfilesPath}"
+
+        echo "Installing dotfiles (stow + zplug)..."
+        cd "${dotfilesPath}"
+        make install
+      fi
+    '';
+  };
+in
 {
   # Nix & Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -74,25 +99,7 @@
     unstable.gemini-cli-bin
     vim
     zoxide
-    (writeShellScriptBin "setup-dotfiles" ''
-      mkdir -p ~/Code
-
-      if [ "$1" == "--force" ]; then
-        echo "Force flag detected. Removing existing dotfiles..."
-        rm -rf ${dotfilesPath}
-      fi
-
-      if [ -d ${dotfilesPath} ]; then
-        echo "Dotfiles already exist at ${dotfilesPath}. Use --force to overwrite."
-      else
-        echo "Cloning dotfiles..."
-        ${git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ${dotfilesPath}
-
-        echo "Installing dotfiles (stow + zplug)..."
-        cd ${dotfilesPath}
-        ${gnumake}/bin/make install
-      fi
-    '')
+    setupDotfiles
   ];
 
   environment.sessionVariables = {
