@@ -32,27 +32,41 @@
   programs.light.enable = true;
 
   # Packages - Desktop
-  environment.systemPackages = with pkgs; [
-    arandr
-    autorandr
-    dunst
-    i3blocks
-    kitty
-    networkmanagerapplet
-    pamixer
-    pasystray
-    pavucontrol
-    rofi
-    xbindkeys
-    xorg.xinit
-    xorg.xmodmap
-    xss-lock
-    xsecurelock
+  environment.systemPackages =
+    let
+      browsers = with pkgs; [
+        google-chrome
+      ];
 
-    # GUI Tools
-    flameshot
-    google-chrome
-  ];
+      wmTools = with pkgs; [
+        arandr
+        autorandr
+        dunst
+        i3blocks
+        networkmanagerapplet
+        rofi
+        xbindkeys
+        xorg.xinit
+        xorg.xmodmap
+        xss-lock
+        xsecurelock
+      ];
+
+      audioTools = with pkgs; [
+        pamixer
+        pasystray
+        pavucontrol
+      ];
+
+      guiUtils = with pkgs; [
+        flameshot
+      ];
+
+      terminals = with pkgs; [
+        kitty
+      ];
+    in
+    browsers ++ wmTools ++ audioTools ++ guiUtils ++ terminals;
 
   # Fonts
   fonts.packages = with pkgs; [
