@@ -28,6 +28,7 @@ let
       if [ -n "$ENTRY" ]; then
         cp "$ENTRY" /boot/loader/entries/z-stable.conf
         sed -i 's/^title .*/title NixOS (Stable)/' /boot/loader/entries/z-stable.conf
+        sed -i '/^sort-key .*/d' /boot/loader/entries/z-stable.conf
       fi
 
       # 4. Remote Branch Promotion & Tagging
