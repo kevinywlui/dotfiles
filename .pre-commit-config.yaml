@@ -39,12 +39,6 @@ repos:
         language: system
         types: [nix]
 
-      - id: stylua
-        name: stylua
-        entry: stylua
-        language: system
-        types: [lua]
-
       - id: nix-flake-check
         name: nix flake check
         entry: bash -c "cd nix && nix flake check --no-build"
