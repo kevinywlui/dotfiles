@@ -1,37 +1,41 @@
-# Dotfiles
+# Dotfiles & NixOS Configuration
 
-My configuration files managed by [GNU Stow](https://www.gnu.org/software/stow/).
+My personal configuration files managed by [GNU Stow](https://www.gnu.org/software/stow/) and [NixOS](https://nixos.org/).
 
 ## Structure
 
-*   **base**: Contains all configurations (Git, X11, Shell, i3, etc.).
-*   **nix**: Contains the NixOS system configuration.
+*   **`base/`**: User-level configuration (Git, i3, Zsh, Neovim, etc.) managed via Stow.
+*   **`nix/`**: System-level configuration (NixOS, Flakes, Home Manager).
 
 ## Installation
 
-1.  **Install Dependencies**:
-    *   **Stow**:
-        ```bash
-        # Arch Linux
-        sudo pacman -S stow fzf
+### 1. System Setup (NixOS)
+To apply the system configuration (packages, services, hardware):
+```bash
+cd nix
+sudo nixos-rebuild switch --flake .
+```
 
-        # Debian/Ubuntu
-        sudo apt install stow fzf
-        ```
+### 2. User Config (Dotfiles)
+To install the user configuration (symlink files to `~`):
+```bash
+make install
+```
+This handles installing `zplug` and stowing the `base` directory.
 
-2.  **Clone the repository**:
+## Development
+
+This repository uses [pre-commit](https://pre-commit.com/) to ensure code quality.
+
+*   **Checks:** `gitleaks` (secrets), `shellcheck` (scripts), `nixpkgs-fmt` (nix formatting), `stylua` (lua formatting).
+*   **Run manually:**
     ```bash
-    git clone https://github.com/kevinywlui/dotfiles.git ~/dotfiles
-    cd ~/dotfiles
+    pre-commit run --all-files
     ```
 
-3.  **Install**:
-    ```bash
-    make install
-    ```
+## Key Commands
 
-## Notes
-
-*   **Neovim**: The configuration is located in `base/.config/nvim`.
-*   **Zsh**: Uses `zplug` (automatically installed to `~/.zplug` by the Makefile).
-*   **Scripts**: User scripts are installed to `~/.local/bin`.
+*   **Apply Nix Config:** `cd nix && sudo nixos-rebuild switch --flake .`
+*   **Update Nix Inputs:** `cd nix && nix flake update`
+*   **Install Dotfiles:** `make install`
+*   **Update Dotfiles (adopt changes):** `make adopt`
