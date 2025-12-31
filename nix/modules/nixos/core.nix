@@ -116,6 +116,9 @@ in
     fileSystems = [ "/" ];
   };
 
+  # Swap (zram)
+  zramSwap.enable = true;
+
 
   system.stateVersion = "24.11";
 }
