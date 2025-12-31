@@ -24,9 +24,6 @@
     pulse.enable = true;
   };
 
-  # Auto-login (Desktop feature)
-  services.getty.autologinUser = "klui";
-
   # User Extras
   users.users.klui.extraGroups = [ "video" ];
 
@@ -54,6 +51,7 @@
 
     # GUI Tools
     flameshot
+    google-chrome
   ];
 
   # Fonts
