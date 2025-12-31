@@ -1,8 +1,8 @@
 { pkgs, config, lib, ... }:
 
 {
-  systemd.services.mark-golden = {
-    description = "Mark current commit as golden after 10 minutes of uptime";
+  systemd.services.mark-stable = {
+    description = "Mark current commit as stable after 10 minutes of uptime";
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     requires = [ "network-online.target" ];
@@ -14,14 +14,12 @@
     };
 
     script = ''
-      echo "Waiting 10 minutes before marking system as golden..."
+      echo "Waiting 10 minutes before marking system as stable..."
       sleep 600
 
       # 1. Local Pinning
-      # We use sudo to create a system-level profile pin.
-      # Note: We'll need to add a sudo rule for this to be passwordless.
       echo "Pinning local system profile..."
-      sudo ${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/golden --set /run/current-system
+      sudo ${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/stable --set /run/current-system
 
       # 2. Remote Branch Promotion
       echo "Promoting current commit to main branch..."
@@ -31,7 +29,7 @@
       CURRENT_HASH=$(${pkgs.git}/bin/git rev-parse HEAD)
       ${pkgs.git}/bin/git push origin $CURRENT_HASH:main --force
 
-      echo "System successfully marked as golden."
+      echo "System successfully marked as stable."
     '';
   };
 
@@ -41,7 +39,7 @@
       users = [ "klui" ];
       commands = [
         {
-          command = "${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/golden --set /run/current-system";
+          command = "${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/stable --set /run/current-system";
           options = [ "NOPASSWD" ];
         }
       ];
