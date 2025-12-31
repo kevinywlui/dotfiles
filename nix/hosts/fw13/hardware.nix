@@ -6,7 +6,7 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
