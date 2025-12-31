@@ -6,6 +6,7 @@
 
   # Networking (Desktop/Laptop usually needs NM)
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Services - Desktop/Hardware
   services.fwupd.enable = true;
