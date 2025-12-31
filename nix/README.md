@@ -5,8 +5,9 @@ This repository contains the NixOS configuration for a Framework 13 Laptop (Inte
 ## Features
 - **Encrypted Btrfs**: LUKS-on-disk with subvolumes for `/`, `/home`, and `/nix`.
 - **Framework Support**: Optimized via `nixos-hardware` (fingerprint reader, power tuning, etc.).
+- **Optimized Boot**: High-resolution `systemd-boot` menu and persistent "Stable" backup entry.
 - **Modern Shell**: Zsh with `fzf` integration and `p10k` theme.
-- **Applications**: Unstable Neovim, Kitty, i3wm, and system utilities.
+- **Applications**: Google Chrome, Unstable Neovim, Kitty, i3wm, and system utilities.
 
 ## Installation Instructions
 

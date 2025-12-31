@@ -17,9 +17,10 @@ This repository uses a "Soak Test" pattern to ensure system stability:
 2.  **`main` Branch**: This is the **Stable** branch. It is only updated automatically.
 3.  **Automatic Promotion**: A systemd service (`mark-stable`) monitors the system. If the system stays up for 10 minutes, the service:
     *   Pins the current system locally at `/nix/var/nix/profiles/stable`.
+    *   Creates/Updates a persistent **"NixOS (Stable)"** entry in the boot menu (sorted to the bottom).
     *   Force-pushes the current commit to the `main` branch.
 
-To recover or deploy a known-good version, use the `main` branch.
+To recover or deploy a known-good version, use the `main` branch or select the "Stable" entry from the boot menu.
 
 ## Installation
 
