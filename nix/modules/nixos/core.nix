@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, dotfilesPath, ... }:
 
 {
   # Nix & Flakes
@@ -22,7 +22,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/klui/Code/dotfiles/nix";
+    flake = "${dotfilesPath}/nix";
   };
 
   # Localization
@@ -79,24 +79,24 @@
 
       if [ "$1" == "--force" ]; then
         echo "Force flag detected. Removing existing dotfiles..."
-        rm -rf ~/Code/dotfiles
+        rm -rf ${dotfilesPath}
       fi
 
-      if [ -d ~/Code/dotfiles ]; then
-        echo "Dotfiles already exist at ~/Code/dotfiles. Use --force to overwrite."
+      if [ -d ${dotfilesPath} ]; then
+        echo "Dotfiles already exist at ${dotfilesPath}. Use --force to overwrite."
       else
         echo "Cloning dotfiles..."
-        ${git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ~/Code/dotfiles
+        ${git}/bin/git clone https://github.com/kevinywlui/dotfiles.git ${dotfilesPath}
 
         echo "Installing dotfiles (stow + zplug)..."
-        cd ~/Code/dotfiles
+        cd ${dotfilesPath}
         ${gnumake}/bin/make install
       fi
     '')
   ];
 
   environment.sessionVariables = {
-    FLAKE = "/home/klui/Code/dotfiles/nix";
+    FLAKE = "${dotfilesPath}/nix";
   };
 
   # Services - Core

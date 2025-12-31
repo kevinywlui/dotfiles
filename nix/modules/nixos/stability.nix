@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, dotfilesPath, ... }:
 
 {
   systemd.timers.mark-stable = {
@@ -37,7 +37,7 @@
       echo "Promoting current commit to main branch..."
       # Run as klui to use their SSH keys and git config.
       # Using -i to ensure login environment and -C to handle directory change.
-      /run/wrappers/bin/sudo -i -u klui ${pkgs.git}/bin/git -C /home/klui/Code/dotfiles push origin HEAD:main --force
+      /run/wrappers/bin/sudo -i -u klui ${pkgs.git}/bin/git -C ${dotfilesPath} push origin HEAD:main --force
 
       echo "System successfully marked as stable."
     '';

@@ -13,7 +13,10 @@
   outputs = { nixpkgs, nixos-hardware, disko, home-manager, ... }@inputs: {
     nixosConfigurations.fw13 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs;
+        dotfilesPath = "/home/klui/Code/dotfiles";
+      };
       modules = [
         nixos-hardware.nixosModules.framework-intel-core-ultra-series1
         disko.nixosModules.disko
