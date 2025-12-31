@@ -101,6 +101,13 @@
     vim
   ];
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/klui/Code/dotfiles/nix";
+  };
+
   fonts.packages = with pkgs; [
     nerdfonts
   ];
