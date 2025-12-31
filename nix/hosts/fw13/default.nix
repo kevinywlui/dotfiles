@@ -5,6 +5,7 @@
     ../../modules/nixos/core.nix
     ../../modules/nixos/desktop.nix
     ../../modules/nixos/stability.nix
+    ../../modules/nixos/overlays.nix
     ./hardware.nix
     ./disko.nix
   ];

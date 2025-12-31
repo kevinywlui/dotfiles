@@ -30,15 +30,6 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      unstable = import inputs.nixpkgs-unstable {
-        system = final.system;
-        config.allowUnfree = true;
-      };
-    })
-  ];
-
   # Home Manager Global Settings
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
