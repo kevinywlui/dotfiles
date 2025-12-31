@@ -41,10 +41,6 @@
       users = [ "klui" ];
       commands = [
         {
-          command = "/nix/var/nix/profiles/default/bin/nix-env --profile /nix/var/nix/profiles/golden --set /run/current-system";
-          options = [ "NOPASSWD" ];
-        }
-        {
           command = "${pkgs.nix}/bin/nix-env --profile /nix/var/nix/profiles/golden --set /run/current-system";
           options = [ "NOPASSWD" ];
         }
