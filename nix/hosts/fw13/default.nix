@@ -4,6 +4,7 @@
   imports = [
     ../../modules/nixos/core.nix
     ../../modules/nixos/desktop.nix
+    ../../modules/nixos/stability.nix
     ./hardware.nix
     ./disko.nix
   ];
