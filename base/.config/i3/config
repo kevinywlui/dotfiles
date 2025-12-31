@@ -135,6 +135,7 @@ bindsym XF86MonBrightnessDown exec "light -U 2"
 # startup programs
 exec --no-startup-id redshift
 exec --no-startup-id dunst
+exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#D35400"
 exec --no-startup-id xss-lock --transfer-sleep-lock -s ${XDG_SESSION_ID} -- xsecurelock
