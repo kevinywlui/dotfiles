@@ -16,7 +16,20 @@ let
         exit 1
       fi
 
-      # 2. Local Pinning
+      # 2. Uptime/Stability Check
+      # Ensure the *current configuration* has actually been running for the required time.
+      # If we switched generations mid-boot (e.g. min 5), we don't want to mark the new one stable at min 10.
+      REQUIRED_TIME=600 # 10 minutes in seconds
+      CURRENT_SYS_TIME=$(stat -c %Y /run/current-system)
+      NOW=$(date +%s)
+      DIFF=$((NOW - CURRENT_SYS_TIME))
+
+      if [ "$DIFF" -lt "$REQUIRED_TIME" ]; then
+        echo "Current system configuration is too new ($DIFF seconds). Waiting for full stability period ($REQUIRED_TIME seconds)..."
+        exit 0
+      fi
+
+      # 3. Local Pinning
       echo "Pinning local system profile..."
       nix-env --profile /nix/var/nix/profiles/stable --set /run/current-system
 
