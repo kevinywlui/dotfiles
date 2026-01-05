@@ -73,6 +73,7 @@ in
         pre-commit
         shfmt
         stow
+        tailscale
         udiskie
         unzip
         wget
@@ -105,6 +106,8 @@ in
   };
 
   # Services - Core
+  services.tailscale.enable = true;
+
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
