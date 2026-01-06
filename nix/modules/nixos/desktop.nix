@@ -6,6 +6,7 @@
 
   # Networking (Desktop/Laptop usually needs NM)
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
   systemd.services.NetworkManager-wait-online.enable = false;
 
   # Services - Desktop/Hardware
