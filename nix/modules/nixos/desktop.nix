@@ -14,6 +14,7 @@
   services.fprintd.enable = true;
   services.thermald.enable = true;
   services.psd.enable = true;
+  services.upower.enable = true;
   services.logind.lidSwitch = "suspend";
   security.pam.services.login.fprintAuth = true;
   security.pam.services.sudo.fprintAuth = true;
@@ -49,6 +50,7 @@
         i3blocks
         networkmanagerapplet
         rofi
+        upower
         xbindkeys
         xorg.xinit
         xorg.xmodmap
