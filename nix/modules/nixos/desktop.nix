@@ -76,9 +76,23 @@
     browsers ++ wmTools ++ audioTools ++ guiUtils ++ terminals;
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerdfonts
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      inter
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "FiraCode Nerd Font" ];
+        sansSerif = [ "Inter" "Noto Sans" ];
+        serif = [ "Noto Serif" ];
+      };
+    };
+  };
 
   # XServer / Window Manager
   services.xserver = {
