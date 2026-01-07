@@ -8,6 +8,7 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
   systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.targets.network.wantedBy = [ "multi-user.target" ];
 
   # Services - Desktop/Hardware
   services.fwupd.enable = true;
