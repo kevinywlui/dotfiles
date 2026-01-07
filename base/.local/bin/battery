@@ -1,39 +1,55 @@
 #!/usr/bin/env bash
 
-BAT="BAT1"
-BAT_PATH="/sys/class/power_supply/$BAT"
+# Find the first battery device
+BAT_PATH=$(upower -e | grep 'BAT' | head -n 1)
 
-if [ ! -d "$BAT_PATH" ]; then
+if [ -z "$BAT_PATH" ]; then
 	exit 0
 fi
 
-STATUS=$(cat "$BAT_PATH/status")
-CAPACITY=$(cat "$BAT_PATH/capacity")
+# Get all info in one go to avoid race conditions/multiple calls
+UPOWER_OUTPUT=$(upower -i "$BAT_PATH")
 
-# Calculate time remaining
+# Extract values using grep and awk
+STATUS=$(echo "$UPOWER_OUTPUT" | grep "state:" | awk '{print $2}')
+PERCENTAGE=$(echo "$UPOWER_OUTPUT" | grep "percentage:" | awk '{print $2}' | tr -d '%')
+TIME_TO_EMPTY=$(echo "$UPOWER_OUTPUT" | grep "time to empty:" | awk '{print $4, $5}')
+TIME_TO_FULL=$(echo "$UPOWER_OUTPUT" | grep "time to full:" | awk '{print $4, $5}')
+
+# Format time info
 TIME_INFO=""
-CURRENT=$(cat "$BAT_PATH/current_now")
+if [ "$STATUS" = "discharging" ] && [ -n "$TIME_TO_EMPTY" ]; then
+	VAL=$(echo "$TIME_TO_EMPTY" | awk '{print $1}')
+	UNIT=$(echo "$TIME_TO_EMPTY" | awk '{print $2}')
 
-if [ "$CURRENT" -gt 0 ]; then
-	if [ "$STATUS" = "Discharging" ]; then
-		CHARGE_NOW=$(cat "$BAT_PATH/charge_now")
-		REMAINING_MINUTES=$((CHARGE_NOW * 60 / CURRENT))
-		TIME_INFO=" ($(printf "%02d:%02d" $((REMAINING_MINUTES / 60)) $((REMAINING_MINUTES % 60))))"
-	elif [ "$STATUS" = "Charging" ]; then
-		CHARGE_NOW=$(cat "$BAT_PATH/charge_now")
-		CHARGE_FULL=$(cat "$BAT_PATH/charge_full")
-		REMAINING_MINUTES=$(((CHARGE_FULL - CHARGE_NOW) * 60 / CURRENT))
-		TIME_INFO=" ($(printf "%02d:%02d" $((REMAINING_MINUTES / 60)) $((REMAINING_MINUTES % 60))))"
+	if [[ "$UNIT" == "hours" ]]; then
+		# Convert decimal hours to HH:MM using awk
+		HOURS=$(echo "$VAL" | awk '{print int($1)}')
+		MINUTES=$(echo "$VAL" | awk '{print int(($1 - int($1)) * 60)}')
+		TIME_INFO=" ($(printf "%02d:%02d" "$HOURS" "$MINUTES"))"
+	elif [[ "$UNIT" == "minutes" ]]; then
+		TIME_INFO=" (00:$(printf "%02d" "${VAL%.*}"))"
+	fi
+
+elif [ "$STATUS" = "charging" ] && [ -n "$TIME_TO_FULL" ]; then
+	VAL=$(echo "$TIME_TO_FULL" | awk '{print $1}')
+	UNIT=$(echo "$TIME_TO_FULL" | awk '{print $2}')
+
+	if [[ "$UNIT" == "hours" ]]; then
+		HOURS=$(echo "$VAL" | awk '{print int($1)}')
+		MINUTES=$(echo "$VAL" | awk '{print int(($1 - int($1)) * 60)}')
+		TIME_INFO=" ($(printf "%02d:%02d" "$HOURS" "$MINUTES"))"
+	elif [[ "$UNIT" == "minutes" ]]; then
+		TIME_INFO=" (00:$(printf "%02d" "${VAL%.*}"))"
 	fi
 fi
+FULL_TEXT="${PERCENTAGE}%"
 
-FULL_TEXT="${CAPACITY}%"
-
-if [ "$STATUS" = "Discharging" ]; then
+if [ "$STATUS" = "discharging" ]; then
 	FULL_TEXT="${FULL_TEXT} DIS"
-elif [ "$STATUS" = "Charging" ]; then
+elif [ "$STATUS" = "charging" ]; then
 	FULL_TEXT="${FULL_TEXT} CHR"
-elif [ "$STATUS" = "Full" ]; then
+elif [ "$STATUS" = "fully-charged" ]; then
 	FULL_TEXT="${FULL_TEXT} FULL"
 fi
 
@@ -42,18 +58,19 @@ FULL_TEXT="${FULL_TEXT}${TIME_INFO}"
 echo "$FULL_TEXT"
 echo "$FULL_TEXT"
 
-if [ "$STATUS" = "Discharging" ]; then
-	if [ "$CAPACITY" -lt 20 ]; then
+# Color logic
+if [ "$STATUS" = "discharging" ]; then
+	if [ "$PERCENTAGE" -lt 20 ]; then
 		echo "#FF0000"
-	elif [ "$CAPACITY" -lt 40 ]; then
+	elif [ "$PERCENTAGE" -lt 40 ]; then
 		echo "#FFAE00"
-	elif [ "$CAPACITY" -lt 60 ]; then
+	elif [ "$PERCENTAGE" -lt 60 ]; then
 		echo "#FFF600"
-	elif [ "$CAPACITY" -lt 85 ]; then
+	elif [ "$PERCENTAGE" -lt 85 ]; then
 		echo "#A8FF00"
 	fi
 
-	if [ "$CAPACITY" -lt 5 ]; then
+	if [ "$PERCENTAGE" -lt 5 ]; then
 		exit 33
 	fi
 fi
