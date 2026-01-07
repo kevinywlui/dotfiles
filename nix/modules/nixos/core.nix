@@ -114,6 +114,7 @@ in
   # Services - Core
   services.tailscale.enable = true;
   services.resolved.enable = true;
+  services.earlyoom.enable = true;
 
   services.syncthing = {
     enable = true;
