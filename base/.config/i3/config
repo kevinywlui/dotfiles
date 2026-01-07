@@ -136,6 +136,7 @@ bindsym XF86MonBrightnessUp exec "light -A 2"
 bindsym XF86MonBrightnessDown exec "light -U 2"
 
 # startup programs
+exec --no-startup-id google-chrome-stable --no-startup-window
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id pasystray
