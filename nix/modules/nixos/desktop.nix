@@ -49,6 +49,7 @@
         autorandr
         dunst
         i3blocks
+        libnotify
         networkmanagerapplet
         rofi
         upower
