@@ -44,6 +44,12 @@ in
   # Localization
   time.timeZone = "America/Los_Angeles";
 
+  # Networking
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
+
   # User
   users.users.klui = {
     isNormalUser = true;
