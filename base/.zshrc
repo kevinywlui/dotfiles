@@ -56,3 +56,10 @@ source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load local overrides and extra configurations
+if [[ -d "$HOME/.zshrc_includes" ]]; then
+  for file in "$HOME/.zshrc_includes"/*.zsh(N); do
+    source "$file"
+  done
+fi
