@@ -75,7 +75,7 @@ case "$STATUS" in
 	;;
 esac
 
-FULL_TEXT="${ICON} ${PERCENTAGE}%${TIME_INFO}"
+FULL_TEXT="${ICON}  ${PERCENTAGE}%${TIME_INFO}"
 
 # Output full text (long and short)
 echo "$FULL_TEXT"
