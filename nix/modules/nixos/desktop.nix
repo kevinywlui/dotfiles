@@ -33,6 +33,14 @@
   # User Extras
   users.users.klui.extraGroups = [ "video" ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+    ];
+  };
+
   # Programs - Desktop
   programs.steam.enable = true;
   programs.light.enable = true;
