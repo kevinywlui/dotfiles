@@ -1,25 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  # Boot (Graphics)
-  boot.initrd.availableKernelModules = [ "i915" ];
-
-  # Networking (Desktop/Laptop usually needs NM)
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "systemd-resolved";
-  systemd.services.NetworkManager-wait-online.enable = false;
-  systemd.targets.network.wantedBy = [ "multi-user.target" ];
-
-  # Services - Desktop/Hardware
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
-  services.thermald.enable = true;
-  services.psd.enable = true;
-  services.upower.enable = true;
-  services.logind.lidSwitch = "suspend";
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.sudo.fprintAuth = true;
-
   # Sound
   security.rtkit.enable = true;
   hardware.firmware = [ pkgs.linux-firmware ];
@@ -41,9 +22,11 @@
     ];
   };
 
+  # Services - Desktop
+  services.psd.enable = true;
+
   # Programs - Desktop
   programs.steam.enable = true;
-  programs.light.enable = true;
 
   # Packages - Desktop
   environment.systemPackages =
@@ -60,7 +43,6 @@
         libnotify
         networkmanagerapplet
         rofi
-        upower
         xbindkeys
         xorg.xinit
         xorg.xmodmap
@@ -111,20 +93,5 @@
       extraConfig = "xft-dpi = 192";
     };
     windowManager.i3.enable = true;
-  };
-
-  # Power Management (Laptop specific, fitting for this Desktop module for now)
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
-
-      PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "low-power";
-    };
   };
 }
