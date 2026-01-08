@@ -1,5 +1,35 @@
 #!/usr/bin/env bash
 
+# Configuration
+URGENT_EXIT_CODE=33
+
+# Colors
+COLOR_CRIT="#FF0000"
+COLOR_LOW="#FFAE00"
+COLOR_MID="#FFF600"
+COLOR_HIGH="#A8FF00"
+
+# Icons (Nerd Fonts)
+ICON_CHR=""
+ICON_DIS=""
+ICON_FULL=""
+ICON_UNKNOWN=""
+
+# Helper function to format time
+format_time() {
+	local val=$1
+	local unit=$2
+	if [[ "$unit" == "hours" ]]; then
+		local hours
+		local minutes
+		hours=$(echo "$val" | awk '{print int($1)}')
+		minutes=$(echo "$val" | awk '{print int(($1 - int($1)) * 60)}')
+		printf "%02d:%02d" "$hours" "$minutes"
+	elif [[ "$unit" == "minutes" ]]; then
+		printf "00:%02d" "${val%.*}"
+	fi
+}
+
 # Find the first battery device
 BAT_PATH=$(upower -e | grep 'BAT' | head -n 1)
 
@@ -16,62 +46,55 @@ PERCENTAGE=$(echo "$UPOWER_OUTPUT" | grep "percentage:" | awk '{print $2}' | tr 
 TIME_TO_EMPTY=$(echo "$UPOWER_OUTPUT" | grep "time to empty:" | awk '{print $4, $5}')
 TIME_TO_FULL=$(echo "$UPOWER_OUTPUT" | grep "time to full:" | awk '{print $4, $5}')
 
-# Format time info
+# Prepare output
 TIME_INFO=""
-if [ "$STATUS" = "discharging" ] && [ -n "$TIME_TO_EMPTY" ]; then
-	VAL=$(echo "$TIME_TO_EMPTY" | awk '{print $1}')
-	UNIT=$(echo "$TIME_TO_EMPTY" | awk '{print $2}')
+ICON=""
 
-	if [[ "$UNIT" == "hours" ]]; then
-		# Convert decimal hours to HH:MM using awk
-		HOURS=$(echo "$VAL" | awk '{print int($1)}')
-		MINUTES=$(echo "$VAL" | awk '{print int(($1 - int($1)) * 60)}')
-		TIME_INFO=" ($(printf "%02d:%02d" "$HOURS" "$MINUTES"))"
-	elif [[ "$UNIT" == "minutes" ]]; then
-		TIME_INFO=" (00:$(printf "%02d" "${VAL%.*}"))"
+case "$STATUS" in
+"discharging")
+	ICON="$ICON_DIS"
+	if [ -n "$TIME_TO_EMPTY" ]; then
+		VAL=$(echo "$TIME_TO_EMPTY" | awk '{print $1}')
+		UNIT=$(echo "$TIME_TO_EMPTY" | awk '{print $2}')
+		TIME_INFO=" ($(format_time "$VAL" "$UNIT"))"
 	fi
-
-elif [ "$STATUS" = "charging" ] && [ -n "$TIME_TO_FULL" ]; then
-	VAL=$(echo "$TIME_TO_FULL" | awk '{print $1}')
-	UNIT=$(echo "$TIME_TO_FULL" | awk '{print $2}')
-
-	if [[ "$UNIT" == "hours" ]]; then
-		HOURS=$(echo "$VAL" | awk '{print int($1)}')
-		MINUTES=$(echo "$VAL" | awk '{print int(($1 - int($1)) * 60)}')
-		TIME_INFO=" ($(printf "%02d:%02d" "$HOURS" "$MINUTES"))"
-	elif [[ "$UNIT" == "minutes" ]]; then
-		TIME_INFO=" (00:$(printf "%02d" "${VAL%.*}"))"
+	;;
+"charging")
+	ICON="$ICON_CHR"
+	if [ -n "$TIME_TO_FULL" ]; then
+		VAL=$(echo "$TIME_TO_FULL" | awk '{print $1}')
+		UNIT=$(echo "$TIME_TO_FULL" | awk '{print $2}')
+		TIME_INFO=" ($(format_time "$VAL" "$UNIT"))"
 	fi
-fi
-FULL_TEXT="${PERCENTAGE}%"
+	;;
+"fully-charged")
+	ICON="$ICON_FULL"
+	;;
+*)
+	ICON="$ICON_UNKNOWN"
+	;;
+esac
 
-if [ "$STATUS" = "discharging" ]; then
-	FULL_TEXT="${FULL_TEXT} DIS"
-elif [ "$STATUS" = "charging" ]; then
-	FULL_TEXT="${FULL_TEXT} CHR"
-elif [ "$STATUS" = "fully-charged" ]; then
-	FULL_TEXT="${FULL_TEXT} FULL"
-fi
+FULL_TEXT="${ICON} ${PERCENTAGE}%${TIME_INFO}"
 
-FULL_TEXT="${FULL_TEXT}${TIME_INFO}"
-
+# Output full text (long and short)
 echo "$FULL_TEXT"
 echo "$FULL_TEXT"
 
 # Color logic
 if [ "$STATUS" = "discharging" ]; then
 	if [ "$PERCENTAGE" -lt 20 ]; then
-		echo "#FF0000"
+		echo "$COLOR_CRIT"
 	elif [ "$PERCENTAGE" -lt 40 ]; then
-		echo "#FFAE00"
+		echo "$COLOR_LOW"
 	elif [ "$PERCENTAGE" -lt 60 ]; then
-		echo "#FFF600"
+		echo "$COLOR_MID"
 	elif [ "$PERCENTAGE" -lt 85 ]; then
-		echo "#A8FF00"
+		echo "$COLOR_HIGH"
 	fi
 
 	if [ "$PERCENTAGE" -lt 5 ]; then
-		exit 33
+		exit "$URGENT_EXIT_CODE"
 	fi
 fi
 
