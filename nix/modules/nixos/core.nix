@@ -27,7 +27,10 @@ let
 in
 {
   # Nix & Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+  };
   nixpkgs.config.allowUnfree = true;
 
   # Home Manager Global Settings

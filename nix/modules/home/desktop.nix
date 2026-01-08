@@ -24,4 +24,39 @@ in
 
   home.packages = [
   ];
+
+  systemd.user.services.check-nix-update = {
+    Unit = {
+      Description = "Check if NixOS configuration is stale";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart =
+        let
+          script = pkgs.writeShellScript "check-update" ''
+            FLAKE_LOCK="${dotfilesPath}/nix/flake.lock"
+            if [ -f "$FLAKE_LOCK" ]; then
+               # Check if file is older than 30 days (2592000 seconds)
+               if [ $(($(date +%s) - $(stat -c %Y "$FLAKE_LOCK"))) -gt 2592000 ]; then
+                  ${pkgs.libnotify}/bin/notify-send "System Update" "Your system configuration is over 30 days old. Please consider running an update." -u normal
+               fi
+            fi
+          '';
+        in
+        "${script}";
+    };
+  };
+
+  systemd.user.timers.check-nix-update = {
+    Unit = {
+      Description = "Periodically check for NixOS updates";
+    };
+    Timer = {
+      OnBootSec = "15m";
+      OnUnitActiveSec = "1d";
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }
