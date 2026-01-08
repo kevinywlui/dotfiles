@@ -41,6 +41,7 @@
   programs.light.enable = true;
 
   environment.systemPackages = with pkgs; [
+    powertop
     upower
   ];
 }
