@@ -163,7 +163,7 @@ set $white #DDDDDD
 
 # font used by i3 for titles and bars
 
-font pango:Fira Code 13, FontAwesome 11
+font pango:monospace 13, FontAwesome 11
 
 #start of bar section
 bar {

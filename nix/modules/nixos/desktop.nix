@@ -78,7 +78,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "FiraCode Nerd Font" ];
+        monospace = [ "MesloLGS Nerd Font" "FiraCode Nerd Font" ];
         sansSerif = [ "Inter" "Noto Sans" ];
         serif = [ "Noto Serif" ];
       };
