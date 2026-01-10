@@ -58,10 +58,11 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" "syncthing" ];
     initialPassword = "klui";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   # Programs - Core CLI
+  programs.fish.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
   programs.htop.enable = true;
