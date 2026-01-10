@@ -101,6 +101,7 @@ in
         fd
         fzf
         jj
+        nushell
         ripgrep
         unstable.gemini-cli-bin
         vim
