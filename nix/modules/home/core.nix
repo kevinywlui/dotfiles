@@ -18,6 +18,7 @@ in
 
   xdg.configFile = {
     "nvim".source = link ".config/nvim";
+    "fish".source = link ".config/fish";
   };
 
   programs.home-manager.enable = true;

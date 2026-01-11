@@ -104,6 +104,7 @@ in
         jj
         nushell
         ripgrep
+        starship
         unstable.gemini-cli-bin
         vim
         zoxide
