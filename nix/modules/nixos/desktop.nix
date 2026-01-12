@@ -58,6 +58,7 @@
 
       guiUtils = with pkgs; [
         flameshot
+        telegram-desktop
       ];
 
       terminals = with pkgs; [
