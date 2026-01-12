@@ -11,11 +11,6 @@ if status is-interactive
     # Initialize starship
     starship init fish | source
 
-    # Bind Ctrl+Space (interpreted as \x00) to accept autosuggestion
-    # We bind it for both default (normal) and insert modes
-    bind -M insert \x00 accept-autosuggestion
-    bind \x00 accept-autosuggestion
-
     # Aliases
     alias ls='ls --color'
     alias vim='nvim'
