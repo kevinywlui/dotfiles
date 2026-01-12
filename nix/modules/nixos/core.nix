@@ -78,25 +78,12 @@ in
       systemUtils = with pkgs; [
         acpi
         btrfs-progs
-        gnumake
         grobi
-        nixpkgs-fmt
-        pre-commit
-        shfmt
         stow
         tailscale
         udiskie
         unzip
         wget
-      ];
-
-      devTools = with pkgs; [
-        clang
-        gitleaks
-        nodejs_latest
-        shellcheck
-        stylua
-        tree-sitter
       ];
 
       cliTools = with pkgs; [
@@ -112,7 +99,7 @@ in
         setupDotfiles
       ];
     in
-    systemUtils ++ devTools ++ cliTools;
+    systemUtils ++ cliTools;
 
   environment.sessionVariables = {
     FLAKE = "${dotfilesPath}/nix";

@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/nixos/core.nix
+    ../../modules/nixos/dev.nix
     ../../modules/nixos/desktop.nix
     ../../modules/nixos/laptop.nix
     ../../modules/nixos/stability.nix
