@@ -19,6 +19,7 @@ in
   xdg.configFile = {
     "nvim".source = link ".config/nvim";
     "fish/config.fish".source = link ".config/fish/config.fish";
+    "fish/fish_variables".source = link ".config/fish/fish_variables";
     "fish/completions".source = link ".config/fish/completions";
     "fish/conf.d".source = link ".config/fish/conf.d";
     "fish/functions".source = link ".config/fish/functions";
