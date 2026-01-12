@@ -18,12 +18,31 @@ in
 
   xdg.configFile = {
     "nvim".source = link ".config/nvim";
-    "fish".source = link ".config/fish";
+    "fish/config.fish".source = link ".config/fish/config.fish";
+    "fish/completions".source = link ".config/fish/completions";
+    "fish/conf.d".source = link ".config/fish/conf.d";
+    "fish/functions".source = link ".config/fish/functions";
   };
 
   programs.home-manager.enable = true;
 
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = false; # Handled in config.fish
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = false; # Handled in config.fish
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = false; # Handled in config.fish
+  };
+
   home.packages = [
+    pkgs.fish
   ];
 
   home.stateVersion = "24.11";

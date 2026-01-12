@@ -1,25 +1,28 @@
 if status is-interactive
-    # Enable Vi mode
-    fish_vi_key_bindings
+    # Commands to run in interactive sessions can go here
 
-    # Initialize zoxide
-    zoxide init fish | source
-
-    # Initialize fzf
-    fzf --fish | source
-
-    # Initialize starship
-    starship init fish | source
-
-    # Aliases
-    alias ls='ls --color'
-    alias vim='nvim'
-    alias xm='xmodmap ~/.xmodmap'
-
-    # Environment variables
+    # Environment Variables
     set -gx EDITOR nvim
     set -gx VISUAL nvim
 
-    # Path
+    # Add local bin to path
     fish_add_path $HOME/.local/bin
+
+    # Aliases
+    alias ls='ls --color=auto'
+    alias vim='nvim'
+    alias xm='xmodmap ~/.xmodmap'
+
+    # Tools initialization
+    if type -q zoxide
+        zoxide init fish | source
+    end
+
+    if type -q starship
+        starship init fish | source
+    end
+
+    if type -q fzf
+        fzf --fish | source
+    end
 end
