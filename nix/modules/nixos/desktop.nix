@@ -57,6 +57,7 @@
       ];
 
       guiUtils = with pkgs; [
+        calibre
         flameshot
         telegram-desktop
       ];
