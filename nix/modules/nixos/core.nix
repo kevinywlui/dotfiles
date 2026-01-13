@@ -114,6 +114,11 @@ in
     enable = true;
     openDefaultPorts = true;
   };
+  systemd.services.syncthing.serviceConfig.UMask = "0007";
+
+  systemd.tmpfiles.rules = [
+    "z /var/lib/syncthing 0770 syncthing syncthing -"
+  ];
 
   services.btrfs.autoScrub = {
     enable = true;
