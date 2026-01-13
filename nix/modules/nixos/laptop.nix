@@ -40,8 +40,6 @@
   # Backlight control
   programs.light.enable = true;
 
-  powerManagement.powertop.enable = true;
-
   environment.systemPackages = with pkgs; [
     powertop
     upower
