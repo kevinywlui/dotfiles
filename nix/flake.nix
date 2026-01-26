@@ -25,17 +25,5 @@
       ];
     };
 
-    nixosConfigurations.gcp = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        dotfilesPath = "/home/klui/Code/dotfiles";
-      };
-      modules = [
-        disko.nixosModules.disko
-        home-manager.nixosModules.home-manager
-        ./hosts/gcp/default.nix
-      ];
-    };
   };
 }
