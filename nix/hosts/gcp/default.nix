@@ -23,10 +23,9 @@
 
   # Bootloader
   boot.loader.grub.enable = true;
-  # device is not strictly required if installing to the same disk as MBR,
-  # but good to be explicit or let install-grub handle it.
-  # For safety in this setup, we'll assume /dev/sda or let the installer handle it.
-
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.device = "/dev/sda";
   home-manager.extraSpecialArgs = { inherit inputs dotfilesPath; };
   home-manager.users.klui = {
     imports = [
