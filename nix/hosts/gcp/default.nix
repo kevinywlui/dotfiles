@@ -7,6 +7,7 @@
     ../../modules/nixos/stability.nix
     ../../modules/nixos/overlays.nix
     ./hardware.nix
+    ./disko.nix
   ];
 
   networking.hostName = "gcp";
@@ -20,11 +21,11 @@
     in
     "gcp-${formattedDate}-${builtins.substring 0 7 rev}";
 
-  # Bootloader (Grub is safer for cloud VMs)
+  # Bootloader
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda"; # CAUTION: Verify this matches your VM's disk
-  # boot.loader.grub.efiSupport = true; # Uncomment if your VM uses EFI
-  # boot.loader.efi.canTouchEfiVariables = true;
+  # device is not strictly required if installing to the same disk as MBR,
+  # but good to be explicit or let install-grub handle it.
+  # For safety in this setup, we'll assume /dev/sda or let the installer handle it.
 
   home-manager.extraSpecialArgs = { inherit inputs dotfilesPath; };
   home-manager.users.klui = {

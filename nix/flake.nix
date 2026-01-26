@@ -8,12 +8,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixos-generators.url = "github:nix-community/nixos-generators";
-    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixos-hardware, disko, home-manager, nixos-generators, ... }@inputs: {
+  outputs = { nixpkgs, nixos-hardware, disko, home-manager, ... }@inputs: {
     nixosConfigurations.fw13 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -35,19 +32,7 @@
         dotfilesPath = "/home/klui/Code/dotfiles";
       };
       modules = [
-        home-manager.nixosModules.home-manager
-        ./hosts/gcp/default.nix
-      ];
-    };
-
-    packages.x86_64-linux.gce-image = nixos-generators.nixosGenerate {
-      system = "x86_64-linux";
-      format = "gce";
-      specialArgs = {
-        inherit inputs;
-        dotfilesPath = "/home/klui/Code/dotfiles";
-      };
-      modules = [
+        disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         ./hosts/gcp/default.nix
       ];
