@@ -9,7 +9,6 @@ in
     ".xresources".source = link ".xresources";
     ".xmodmap".source = link ".xmodmap";
     ".xinitrc".source = link ".xinitrc";
-    ".xbindkeysrc".source = link ".xbindkeysrc";
     ".xprofile".source = link ".xprofile";
     ".i3blocks.conf".source = link ".i3blocks.conf";
   };

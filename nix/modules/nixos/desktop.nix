@@ -43,7 +43,6 @@
         libnotify
         networkmanagerapplet
         rofi
-        xbindkeys
         xorg.xinit
         xorg.xmodmap
         xss-lock
