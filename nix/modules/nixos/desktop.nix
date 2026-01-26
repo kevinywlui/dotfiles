@@ -59,6 +59,7 @@
       guiUtils = with pkgs; [
         calibre
         flameshot
+        google-cloud-sdk
         telegram-desktop
       ];
 
